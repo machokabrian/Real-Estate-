@@ -176,14 +176,15 @@ a{text-decoration:none;color:inherit}
   background:#111;
   position:relative;
   flex-shrink:0;
-  height:400px;
   display:flex;
   flex-direction:column;
-  gap:12px;
-  padding:12px;
+  gap:16px;
+  padding:16px;
+  min-height:500px;
 }
 .modal-main-img{
   flex:1;
+  min-height:320px;
   border-radius:20px;
   background-size:cover;
   background-position:center;
@@ -193,35 +194,37 @@ a{text-decoration:none;color:inherit}
 }
 .modal-thumbs{
   display:flex;
-  gap:10px;
+  gap:14px;
   overflow-x:auto;
-  padding-bottom:4px;
+  padding:8px 0;
   scrollbar-width:none;
   scroll-behavior:smooth;
+  justify-content:flex-start;
 }
 .modal-thumbs::-webkit-scrollbar{display:none}
 .modal-thumbs div{
-  width:80px;
-  height:65px;
-  border-radius:14px;
+  width:110px;
+  height:90px;
+  border-radius:16px;
   background-size:cover;
   background-position:center;
   cursor:pointer;
-  border:2.5px solid transparent;
+  border:3px solid transparent;
   flex-shrink:0;
-  opacity:.6;
+  opacity:.75;
   transition:all .25s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 4px 12px rgba(0,0,0,.2);
+  box-shadow:0 6px 16px rgba(0,0,0,.3);
 }
 .modal-thumbs div:hover{
-  opacity:.85;
-  transform:translateY(-2px);
+  opacity:.95;
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:0 10px 24px rgba(0,0,0,.4);
 }
 .modal-thumbs div.is-active{
   border-color:var(--clay);
   opacity:1;
-  transform:scale(1.05);
-  box-shadow:0 6px 20px rgba(217,166,121,.4);
+  transform:scale(1.08);
+  box-shadow:0 8px 28px rgba(217,166,121,.5);
 }
 
 /* Info Section */
@@ -390,10 +393,16 @@ a{text-decoration:none;color:inherit}
     overflow:auto;
   }
   .modal-gallery{
-    height:320px;
+    min-height:420px;
+    gap:14px;
+    padding:14px;
   }
   .modal-main-img{
     min-height:280px;
+  }
+  .modal-thumbs div{
+    width:100px;
+    height:80px;
   }
   .modal-info{
     padding:32px;
@@ -414,18 +423,21 @@ a{text-decoration:none;color:inherit}
     width:100%;
   }
   .modal-gallery{
-    height:280px;
-    gap:8px;
-    padding:8px;
+    min-height:380px;
+    gap:12px;
+    padding:12px;
   }
   .modal-main-img{
     min-height:240px;
     border-radius:16px;
   }
+  .modal-thumbs{
+    gap:12px;
+  }
   .modal-thumbs div{
-    width:70px;
-    height:55px;
-    border-radius:10px;
+    width:90px;
+    height:75px;
+    border-radius:12px;
   }
   .modal-info{
     padding:24px;
