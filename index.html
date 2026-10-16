@@ -3,615 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#193226">
 <title>Lemways Nest Ltd -- Real Estate in Nairobi</title>
 <meta name="description" content="Lemways Nest Ltd -- buying, letting and managing property across Nairobi since 2021. Offices off Muthangari Road, Lavington.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ===== LEMWAYS NEST - PERFECTED MODERN ===== */
-:root{
-  --forest:#193226;--forest-2:#15291f;--cream:#F7F3EC;--paper:#FAF6F0;
-  --clay:#D9A679;--clay-hover:#C48C5E;--gold:#C9A15A;--ink:#1A1A1A;
-  --muted:#6B6B6B;--line:rgba(25,50,38,0.12);
-  --shadow:0 20px 60px rgba(25,50,38,0.12);
-  --shadow-lg:0 40px 100px rgba(25,50,38,0.18);
-  --radius:24px;--radius-sm:16px;--radius-full:999px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:"Work Sans",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{font-family:"Fraunces",serif;letter-spacing:-0.03em;line-height:0.95}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 28px;border-radius:var(--radius-full);font-weight:600;font-size:14px;letter-spacing:.01em;transition:all .25s cubic-bezier(.4,0,.2,1);border:1.5px solid transparent;cursor:pointer;white-space:nowrap}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:translateY(0)}
-.btn-clay{background:var(--clay);color:#111}.btn-clay:hover{background:var(--clay-hover);box-shadow:0 8px 20px rgba(217,166,121,.35)}
-.btn-ghost{border-color:rgba(247,243,236,.4);color:var(--cream);backdrop-filter:blur(6px)}.btn-ghost:hover{background:var(--cream);color:var(--forest)}
-.btn-ghost-dark{border-color:var(--ink);color:var(--ink);background:transparent}.btn-ghost-dark:hover{background:var(--ink);color:white}
-.btn.full{width:100%}
-.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* NAV */
-.site-header{
-  position:fixed;top:0;left:0;right:0;z-index:1002;height:72px;display:flex;align-items:center;
-  background:rgba(250,246,240,.85);backdrop-filter:blur(16px) saturate(1.6);
-  border-bottom:1px solid rgba(25,50,38,.07);transition:all .35s ease;
-}
-.site-header.is-scrolled{height:64px;background:rgba(250,246,240,.98);box-shadow:0 8px 32px rgba(25,50,38,.08)}
-.header-inner{display:flex;justify-content:space-between;align-items:center;width:100%;position:relative;z-index:1003}
-.logo{display:flex;align-items:center;gap:10px;font-family:"Fraunces";font-weight:700;font-size:20px;letter-spacing:-.02em}
-.logo-mark{color:var(--forest);display:grid;place-items:center}
-.main-nav{display:flex;align-items:center;gap:32px;font-size:14.5px;font-weight:500}
-.nav-link{position:relative;padding:6px 0}.nav-link::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--forest);transition:.3s cubic-bezier(.4,0,.2,1)}.nav-link:hover::after{width:100%}
-.nav-cta{height:40px;padding:0 22px;border-radius:var(--radius-full);background:var(--ink);color:#fff !important;display:grid;place-items:center;font-weight:600;transition:.25s}.nav-cta:hover{background:var(--forest);transform:translateY(-1px)}
-.nav-mobile-contact{display:none}
-.nav-toggle{display:none;background:none;border:none;width:32px;height:28px;position:relative;cursor:pointer;z-index:1004;padding:0}
-.nav-toggle span{position:absolute;left:4px;right:4px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .32s ease,opacity .25s ease,top .32s ease}
-.nav-toggle span:nth-child(1){top:6px}.nav-toggle span:nth-child(2){top:13px}.nav-toggle span:nth-child(3){top:20px}
-.nav-toggle.is-active span:nth-child(1){top:13px;transform:rotate(45deg)}.nav-toggle.is-active span:nth-child(2){opacity:0;transform:translateX(12px)}.nav-toggle.is-active span:nth-child(3){top:13px;transform:rotate(-45deg)}
-.nav-overlay{display:none;position:fixed;inset:0;top:0;width:100%;height:100%;background:rgba(10,20,14,.3);backdrop-filter:blur(4px);z-index:1000;opacity:0;transition:opacity .25s ease;pointer-events:none}
-.nav-overlay.is-open{display:block !important;opacity:1;pointer-events:auto;z-index:1000}
-
-/* HERO */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:var(--forest);color:var(--cream);overflow:hidden;padding:140px 0 80px}
-.hero-bg{position:absolute;inset:0;top:28%}.contour{width:100%;height:100%}
-.hero-inner{position:relative;z-index:2;max-width:720px}
-.kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;opacity:.7;margin-bottom:28px;font-weight:600}
-.hero-title{font-size:clamp(42px,7.2vw,84px);font-weight:500;margin-bottom:22px}.hero-title .line{display:block}
-.hero-sub{font-size:18px;line-height:1.55;opacity:.82;max-width:520px;margin-bottom:32px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.seal{position:absolute;right:6%;bottom:10%;opacity:.9}
-
-/* ABOUT */
-.about{background:var(--cream);padding:110px 0}
-.about-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:start}
-.about-copy h2{font-size:clamp(28px,4vw,46px);font-weight:600;line-height:1.02;margin-bottom:24px;max-width:14ch}
-.about-copy p{color:var(--muted);font-size:17px;line-height:1.7;margin-bottom:28px}
-.fact-list{display:grid;border-top:1px solid var(--line)}.fact-list div{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
-.fact-list dt{opacity:.55;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:700}
-.pull-quote{border-left:3px solid var(--gold);padding:22px 28px;background:var(--paper);border-radius:0 var(--radius-sm) var(--radius-sm) 0;box-shadow:var(--shadow)}
-.pull-quote p{font-family:"Fraunces";font-size:22px;line-height:1.28;font-style:italic;color:var(--ink)}
-.pull-quote cite{display:block;margin-top:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;font-style:normal;font-weight:600}
-
-/* PROPERTIES */
-.properties{padding:100px 0}.section-head h2{font-size:clamp(32px,4vw,44px);margin-bottom:8px}.section-head p{color:var(--muted);font-size:15px}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 36px}
-.filter-btn{height:38px;padding:0 20px;border-radius:var(--radius-full);border:1.5px solid var(--line);background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:.22s}
-.filter-btn:hover{border-color:var(--forest)}.filter-btn.is-active{background:var(--forest);color:var(--cream);border-color:var(--forest);box-shadow:0 6px 16px rgba(25,50,38,.18)}
-.property-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;grid-auto-rows:220px}
-.property-card{position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1)}
-.property-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.property-image{flex:1;background-size:cover;background-position:center;transition:transform .6s ease}.property-card:hover .property-image{transform:scale(1.04)}
-.property-body{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.2) 65%, transparent 100%);color:#fff}
-.tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--cream);color:var(--ink);padding:5px 10px;border-radius:var(--radius-full);font-weight:700;display:inline-block;margin-bottom:10px}
-.property-body h3{font-size:19px;font-weight:600;line-height:1.1;margin-bottom:4px}
-.loc{font-size:12.5px;opacity:.85;margin-bottom:6px}.price{font-size:13.5px;font-weight:700;letter-spacing:.01em}
-.wa-hint{display:inline-flex;margin-top:10px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);padding:6px 12px;border-radius:var(--radius-full);opacity:0;transform:translateY(8px);transition:.3s}
-.property-card:hover .wa-hint{opacity:1;transform:translateY(0)}
-.size-wide{grid-column:span 8}.size-tall{grid-column:span 4;grid-row:span 2}.size-normal{grid-column:span 4}
-
-/* SERVICES */
-.services{background:var(--ink);color:var(--cream);padding:100px 0}.services-inner h2{font-size:clamp(32px,4vw,44px);margin-bottom:48px}
-.service-list{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);overflow:hidden}
-.service-item{background:#1e1e1e;padding:32px 28px;transition:.25s}.service-item:hover{background:#232323}
-.service-item h3{font-size:19px;margin-bottom:10px}.service-item p{font-size:14px;opacity:.65;line-height:1.6}
-
-/* CONTACT */
-.contact{padding:100px 0;background:var(--paper)}.contact-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}
-.contact-info h2{font-size:clamp(32px,4vw,42px);margin-bottom:20px}
-.contact-details{list-style:none;margin:24px 0;display:grid;gap:14px}
-.contact-details li{font-size:14px;display:flex;gap:12px}.contact-details span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.5;min-width:52px;font-weight:700}
-.map-embed{margin-top:24px;border-radius:var(--radius-sm);overflow:hidden;height:260px;border:1px solid var(--line);box-shadow:var(--shadow)}.map-embed iframe{width:100%;height:100%;border:0}
-.contact-form{background:#fff;padding:32px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line)}
-.contact-form h3{font-size:22px;margin-bottom:20px}
-.contact-form label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.6;margin:18px 0 8px;display:block}
-.contact-form input,.contact-form select,.contact-form textarea{width:100%;height:46px;padding:0 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);font-family:inherit;font-size:14px;outline:none;transition:.2s}
-.contact-form textarea{height:110px;padding:12px 14px;resize:vertical}
-.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--forest);background:#fff;box-shadow:0 0 0 4px rgba(25,50,38,.08)}
-.form-note{margin-top:14px;font-size:13px;line-height:1.5}
-
-/* FOOTER */
-.site-footer{background:var(--cream);border-top:1px solid var(--line);padding:56px 0 24px}
-.footer-inner{display:flex;justify-content:space-between;gap:40px}.footer-links{display:flex;gap:64px}
-.footer-links h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;opacity:.5;font-weight:700}
-.footer-links a{display:block;font-size:14px;margin-bottom:10px;opacity:.75;transition:.2s}.footer-links a:hover{opacity:1;color:var(--forest)}
-.footer-bottom{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;opacity:.5;display:flex;justify-content:space-between}
-
-/* MODAL - WHATSAPP - REDESIGNED */
-.modal-overlay{
-  position:fixed;inset:0;z-index:2000;
-  background:rgba(10,20,14,.85);backdrop-filter:blur(16px) saturate(1.3);
-  display:none;place-items:center;padding:20px;
-  overflow-y:auto;
-}
-.modal-overlay.is-open{display:grid !important}
-.modal{
-  background:#FAF6F0;width:min(920px,100%);max-height:95vh;
-  border-radius:32px;overflow:hidden;display:flex;
-  flex-direction:column;position:relative;
-  box-shadow:0 50px 150px rgba(0,0,0,.5);
-  animation:modalSlideUp .5s cubic-bezier(.34,.1,.64,.1);
-}
-@keyframes modalSlideUp{
-  from{
-    transform:translateY(60px) scale(.95);
-    opacity:0;
-  }
-  to{
-    transform:translateY(0) scale(1);
-    opacity:1;
-  }
-}
-.modal-close{
-  position:absolute;
-  top:16px;
-  right:16px;
-  z-index:100;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:none;
-  background:rgba(255,255,255,.95);
-  font-size:28px;
-  cursor:pointer;
-  display:grid;
-  place-items:center;
-  transition:all .25s cubic-bezier(.4,0,.2,1);
-  color:var(--forest);
-  font-weight:300;
-  box-shadow:0 4px 16px rgba(0,0,0,.15);
-}
-.modal-close:hover{
-  background:#fff;
-  transform:rotate(90deg) scale(1.1);
-  box-shadow:0 8px 24px rgba(0,0,0,.2);
-}
-.modal-close:active{
-  transform:rotate(90deg) scale(.95);
-}
-
-/* Gallery Section */
-.modal-gallery{
-  background:#111;
-  position:relative;
-  flex-shrink:0;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  padding:16px;
-  min-height:500px;
-}
-.modal-main-img{
-  flex:1;
-  min-height:320px;
-  border-radius:20px;
-  background-size:cover;
-  background-position:center;
-  background-color:#222;
-  transition:all .4s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 8px 32px rgba(0,0,0,.4);
-}
-.modal-thumbs{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  padding:8px 0;
-  scrollbar-width:none;
-  scroll-behavior:smooth;
-  justify-content:flex-start;
-}
-.modal-thumbs::-webkit-scrollbar{display:none}
-.modal-thumbs div{
-  width:110px;
-  height:90px;
-  border-radius:16px;
-  background-size:cover;
-  background-position:center;
-  cursor:pointer;
-  border:3px solid transparent;
-  flex-shrink:0;
-  opacity:.75;
-  transition:all .25s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 6px 16px rgba(0,0,0,.3);
-}
-.modal-thumbs div:hover{
-  opacity:.95;
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:0 10px 24px rgba(0,0,0,.4);
-}
-.modal-thumbs div.is-active{
-  border-color:var(--clay);
-  opacity:1;
-  transform:scale(1.08);
-  box-shadow:0 8px 28px rgba(217,166,121,.5);
-}
-
-/* Info Section */
-.modal-info{
-  padding:40px 40px;
-  overflow-y:auto;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-}
-
-/* Badge & Code */
-.modal-info .tag{
-  align-self:flex-start;
-  background:linear-gradient(135deg, var(--clay) 0%, var(--clay-hover) 100%);
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.14em;
-  padding:8px 14px;
-  border-radius:var(--radius-full);
-  margin-bottom:16px;
-  box-shadow:0 4px 12px rgba(217,166,121,.25);
-}
-.modal-code{
-  display:inline-block;
-  margin-left:12px;
-  font-size:10px;
-  letter-spacing:.1em;
-  background:rgba(25,50,38,.1);
-  padding:6px 12px;
-  border-radius:var(--radius-full);
-  font-weight:700;
-  color:var(--forest);
-}
-
-/* Title & Price */
-.modal-info h2{
-  font-size:36px;
-  font-weight:600;
-  line-height:1.1;
-  margin:8px 0 12px;
-  color:var(--ink);
-}
-.modal-loc{
-  color:var(--muted);
-  font-size:15px;
-  font-weight:500;
-  letter-spacing:.02em;
-  margin-bottom:12px;
-}
-.modal-price{
-  font-size:28px;
-  font-weight:700;
-  margin:16px 0 24px;
-  background:linear-gradient(135deg, var(--forest) 0%, var(--forest-2) 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-/* Features Grid */
-.modal-features{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-  margin:28px 0;
-  padding:28px 0;
-  border-top:1.5px solid var(--line);
-  border-bottom:1.5px solid var(--line);
-}
-.modal-features div{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-.modal-features span{
-  font-size:10px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  opacity:.55;
-  font-weight:700;
-  color:var(--muted);
-}
-.modal-features strong{
-  font-size:15px;
-  font-weight:600;
-  color:var(--ink);
-}
-
-/* Description */
-.modal-desc{
-  font-size:14px;
-  color:var(--muted);
-  line-height:1.7;
-  margin-bottom:28px;
-  padding:18px 20px;
-  background:var(--paper);
-  border-left:3px solid var(--clay);
-  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-/* Action Buttons */
-.modal-actions{
-  display:grid;
-  gap:12px;
-  margin-top:auto;
-}
-#modalWhatsAppBtn{
-  background:linear-gradient(135deg, #25D366 0%, #20bd5a 100%) !important;
-  color:#fff !important;
-  font-weight:700;
-  display:flex !important;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  box-shadow:0 8px 24px rgba(37,211,102,.35);
-  font-size:15px;
-  height:52px;
-  border-radius:var(--radius-full);
-  transition:all .3s cubic-bezier(.4,0,.2,1);
-}
-#modalWhatsAppBtn:hover{
-  background:linear-gradient(135deg, #20bd5a 0%, #1ba84f 100%) !important;
-  transform:translateY(-2px);
-  box-shadow:0 12px 32px rgba(37,211,102,.45);
-}
-#modalWhatsAppBtn:active{
-  transform:translateY(0);
-}
-#modalCallBtn{
-  background:#fff !important;
-  border:2px solid var(--forest) !important;
-  color:var(--forest) !important;
-  font-weight:700;
-  font-size:15px;
-  height:52px;
-  border-radius:var(--radius-full);
-  transition:all .3s cubic-bezier(.4,0,.2,1);
-}
-#modalCallBtn:hover{
-  background:var(--forest) !important;
-  color:#fff !important;
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(25,50,38,.2);
-}
-#modalCallBtn:active{
-  transform:translateY(0);
-}
-
-/* Note Text */
-.modal-note{
-  font-size:12px;
-  opacity:.65;
-  text-align:center;
-  margin-top:16px;
-  color:var(--muted);
-  line-height:1.5;
-}
-
-/* Responsive Modal */
-@media(max-width:960px){
-  .modal{
-    grid-template-columns:1fr;
-    max-height:98vh;
-    overflow:auto;
-  }
-  .modal-gallery{
-    min-height:420px;
-    gap:14px;
-    padding:14px;
-  }
-  .modal-main-img{
-    min-height:280px;
-  }
-  .modal-thumbs div{
-    width:100px;
-    height:80px;
-  }
-  .modal-info{
-    padding:32px;
-  }
-  .modal-info h2{
-    font-size:28px;
-  }
-  .modal-price{
-    font-size:24px;
-  }
-}
-@media(max-width:640px){
-  .modal-overlay{
-    padding:12px;
-  }
-  .modal{
-    border-radius:24px;
-    width:100%;
-  }
-  .modal-gallery{
-    min-height:380px;
-    gap:12px;
-    padding:12px;
-  }
-  .modal-main-img{
-    min-height:240px;
-    border-radius:16px;
-  }
-  .modal-thumbs{
-    gap:12px;
-  }
-  .modal-thumbs div{
-    width:90px;
-    height:75px;
-    border-radius:12px;
-  }
-  .modal-info{
-    padding:24px;
-  }
-  .modal-info h2{
-    font-size:24px;
-    margin-top:12px;
-  }
-  .modal-loc{
-    font-size:13px;
-  }
-  .modal-price{
-    font-size:20px;
-    margin:12px 0 16px;
-  }
-  .modal-features{
-    grid-template-columns:1fr;
-    gap:16px;
-    padding:16px 0;
-    margin:16px 0;
-  }
-  .modal-desc{
-    font-size:13px;
-    padding:14px 16px;
-    margin-bottom:20px;
-  }
-  #modalWhatsAppBtn,#modalCallBtn{
-    height:48px;
-    font-size:14px;
-  }
-}
-
-/* RESPONSIVE */
-@media(max-width:1024px){.main-nav{gap:22px}.service-list{grid-template-columns:1fr 1fr}}
-@media(max-width:960px){
-  .about-inner,.contact-inner{grid-template-columns:1fr;gap:48px}
-  .property-grid{grid-template-columns:1fr 1fr;grid-auto-rows:300px}
-  .size-wide,.size-tall,.size-normal{grid-column:span 1;grid-row:span 1}
-  .footer-inner{flex-direction:column}
-  .modal{grid-template-columns:1fr;max-height:94vh;overflow:auto}.modal-main-img{min-height:300px}
-}
-@media(max-width:820px){
-  .wrap{padding:0 20px}
-  .site-header{height:64px}.nav-toggle{display:block}
-  
-  .main-nav{
-    position:fixed;
-    top:72px;
-    right:-360px;
-    left:auto;
-    bottom:auto;
-    width:340px;
-    max-height:calc(100vh - 72px);
-    background:#FAF6F0;
-    flex-direction:column;
-    align-items:flex-start;
-    padding:24px 0;
-    gap:0;
-    transform:translateX(0);
-    transition:right .42s cubic-bezier(.4,0,.2,1);
-    overflow-y:auto;
-    overflow-x:hidden;
-    z-index:1001;
-    box-shadow:-20px 0 60px rgba(0,0,0,.14);
-    -webkit-overflow-scrolling:touch;
-    border-radius:0 0 0 24px;
-    display:flex;
-  }
-  .main-nav.is-open{
-    right:0;
-  }
-  
-  .nav-link{
-    font-family:"Fraunces";
-    font-size:28px;
-    font-weight:500;
-    padding:16px 24px;
-    width:100%;
-    border-bottom:1px solid rgba(25,50,38,.08);
-    display:block;
-    line-height:1.2;
-    transition:all .2s ease;
-  }
-  .nav-link::after{display:none}
-  .nav-link:hover{
-    padding-left:32px;
-    color:var(--forest);
-    background:rgba(25,50,38,.03);
-  }
-  
-  .nav-cta{
-    margin:16px 24px;
-    width:calc(100% - 48px);
-    height:48px;
-    font-size:16px;
-    border-radius:var(--radius-full);
-  }
-  
-  .nav-mobile-contact{
-    display:block;
-    margin-top:16px;
-    padding:20px 24px;
-    border-top:1.5px solid rgba(25,50,38,.1);
-    width:100%;
-    background:rgba(25,50,38,.02);
-  }
-  .nav-mobile-contact p{
-    font-size:12px;
-    opacity:.65;
-    margin-bottom:10px;
-    line-height:1.4;
-    font-weight:500;
-  }
-  .nav-mobile-contact a[href^="tel:"]{
-    display:block;
-    font-size:14px;
-    font-weight:600;
-    color:var(--forest);
-    margin-bottom:6px;
-    padding:8px 0;
-  }
-  .nav-mobile-contact a[href^="https"]{
-    font-size:12px;
-    margin-right:8px;
-  }
-  
-  .hero{padding:110px 0 60px;min-height:auto}.seal{display:none}
-  .about,.properties,.services,.contact{padding:64px 0}
-}
-@media(max-width:560px){
-  .property-grid{grid-template-columns:1fr;grid-auto-rows:340px}
-  .hero-title{font-size:40px}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}
-  .nav-link{font-size:28px}
-  .filters{gap:8px}.filter-btn{height:36px;padding:0 16px}
-}
-</style>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 <div class="grain"></div>
+
+<!-- Overlay sits outside the header so it covers the page, not just the pill -->
+<div class="nav-overlay" id="navOverlay"></div>
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a href="#top" class="logo">
       <span class="logo-mark">
-        <svg viewBox="0 0 40 40" width="34" height="34"><path d="M20 4 C10 12, 4 20, 4 30 L10 30 C10 22, 14 16, 20 11 C26 16, 30 22, 30 30 L36 30 C36 20, 30 12, 20 4Z" fill="currentColor"/><circle cx="20" cy="22" r="2.4" fill="currentColor"/></svg>
+        <img src="logo.png" alt="Lemways Nest Ltd" width="32" height="32" style="object-fit:contain;border-radius:8px">
       </span>
       <span>Lemways&nbsp;Nest</span>
     </a>
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
       <a href="#properties" class="nav-link">Properties</a>
       <a href="#services" class="nav-link">Services</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#contact" class="nav-link">Contact</a>
       <a href="#contact" class="nav-cta">Talk to an agent</a>
       <div class="nav-mobile-contact">
-        <p>Off Muthangari Road, Lavington, Nairobi</p>
+        <p>Off Muthangari Road, Lavington</p>
         <a href="tel:+254762840600">+254 762 840600</a>
         <a href="tel:+254713854394">+254 713 854394</a>
-        <div style="display:flex;gap:16px;margin-top:16px">
-          <a href="https://www.instagram.com/calvin854394?stkn=MWl4YzI4aW93OW9zNw==" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:#E4405F;font-size:14px;font-weight:600">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <div style="display:flex;gap:14px;margin-top:10px">
+          <a href="https://www.instagram.com/calvin854394?stkn=MWl4YzI4aW93OW9zNw==" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;gap:6px;color:#E4405F;font-size:13px;font-weight:600">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             Instagram
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61558114116767&mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:#1877F2;font-size:14px;font-weight:600">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a href="https://www.facebook.com/profile.php?id=61558114116767&mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;gap:6px;color:#1877F2;font-size:13px;font-weight:600">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             Facebook
           </a>
         </div>
-        <p style="margin-top:12px">hello@lemwaysnest.co.ke</p>
+        <p style="margin-top:10px">lemwaysnest@gmail.com</p>
       </div>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-  <div class="nav-overlay" id="navOverlay"></div>
 </header>
 
 <main id="top">
@@ -645,7 +84,7 @@ a{text-decoration:none;color:inherit}
       <div class="about-copy">
         <h2>Started on one street. Still walking every listing.</h2>
         <p>Lemways Nest Ltd opened in 2021, off Muthangari Road in Lavington. What began as a small team helping neighbours buy and let homes nearby has grown into a full property practice working across Nairobi -- without losing the street-level knowledge of the estates where we started.</p>
-        <dl class="fact-list"><div><dt>Founded</dt><dd>2021</dd></div><div><dt>Office</dt><dd>Off Muthangari Road, Lavington</dd></div><div><dt>Coverage</dt><dd>Lavington, Kilimani, Karen, Runda, Westlands & beyond</dd></div></dl>
+        <dl class="fact-list"><div><dt>Founded</dt><dd>2021</dd></div><div><dt>Office</dt><dd>Off Muthangari Road, Lavington</dd></div><div><dt>Coverage</dt><dd>Lavington, Kilimani, Karen, Runda, Westlands &amp; beyond</dd></div></dl>
       </div>
       <blockquote class="pull-quote"><p>"We still walk every property we list. If we wouldn't put our own family in it, it doesn't go on the list."</p><cite>-- The Lemways Nest team</cite></blockquote>
     </div>
@@ -689,350 +128,52 @@ a{text-decoration:none;color:inherit}
     </div>
   </section>
 
-  <section class="services" id="services"><div class="wrap services-inner"><h2>What we handle</h2><div class="service-list"><div class="service-item"><h3>Buying & selling</h3><p>We represent buyers and sellers across Kileleshwa, Karen, Lavingtinon, kilimani, westlands, larger Nairobi area and beyond.</p></div><div class="service-item"><h3>Letting & leasing</h3><p>We match tenants to vetted homes and offices, and handle the lease paperwork.</p></div><div class="service-item"><h3>Property management</h3><p>Rent collection, maintenance and tenant relations for owners who'd rather not do it themselves.</p></div><div class="service-item"><h3>Valuation & advisory</h3><p>Market valuations and investment guidance based on what's actually selling now.</p></div></div></div></section>
+  <section class="services" id="services"><div class="wrap services-inner"><h2>What we handle</h2><div class="service-list"><div class="service-item"><h3>Buying &amp; selling</h3><p>We represent buyers and sellers across Nairobi's estates, from Lavington to Karen and Kilimani.</p></div><div class="service-item"><h3>Letting &amp; leasing</h3><p>We match tenants to vetted homes and offices, and handle the lease paperwork.</p></div><div class="service-item"><h3>Property management</h3><p>Rent collection, maintenance and tenant relations for owners who'd rather not do it themselves.</p></div><div class="service-item"><h3>Valuation &amp; advisory</h3><p>Market valuations and investment guidance based on what's actually selling now.</p></div></div></div></section>
 
   <section class="contact" id="contact">
     <div class="wrap contact-inner">
-      <div class="contact-info"><h2>Come by the office</h2><address><p><strong>Lemways Nest Ltd</strong></p><p>Off Muthangari Road<br>Lavington, Nairobi</p></address><ul class="contact-details"><li><span>Phone</span> +254 762 840600 | +254 713 854394</li><li><span>Email</span> hello@lemwaysnest.co.ke</li><li><span>Hours</span> Mon–Fri 8:30–17:30, Sat 9:00–13:00</li></ul><div class="map-embed"><iframe title="Map" src="https://www.google.com/maps?q=Muthangari+Road,+Lavington,+Nairobi&output=embed" loading="lazy"></iframe></div></div>
+      <div class="contact-info"><h2>Come by the office</h2><address><p><strong>Lemways Nest Ltd</strong></p><p>Off Muthangari Road<br>Lavington, Nairobi</p></address><ul class="contact-details"><li><span>Phone</span> +254 762 840600 | +254 713 854394</li><li><span>Email</span> lemwaysnest@gmail.com</li><li><span>Hours</span> Mon–Fri 8:30–17:30, Sat 9:00–13:00</li></ul><div class="map-embed"><iframe title="Map" src="https://www.google.com/maps?q=Muthangari+Road,+Lavington,+Nairobi&output=embed" loading="lazy"></iframe></div></div>
       <form class="contact-form" id="contactForm" novalidate><h3>Send us a message</h3><label for="name">Name</label><input type="text" id="name" name="name" required><label for="email">Email</label><input type="email" id="email" name="email" required><label for="interest">I'm interested in</label><select id="interest" name="interest"><option value="buy">Buying a property</option><option value="rent">Renting a property</option><option value="sell">Selling / letting my property</option><option value="manage">Property management</option></select><label for="message">Message</label><textarea id="message" name="message" rows="4" required></textarea><button type="submit" class="btn btn-clay full">Send message</button><p class="form-note" id="formNote"></p></form>
     </div>
   </section>
 </main>
 
-<footer class="site-footer"><div class="wrap footer-inner"><div><span style="font-family:Fraunces;font-weight:700;font-size:20px">Lemways&nbsp;Nest</span><p style="margin-top:8px;font-size:13px;opacity:.6">Registered in Kenya. Founded 2021.<br>Off Muthangari Road, Lavington, Nairobi.</p></div><div class="footer-links"><div><h4>Site</h4><a href="#properties">Properties</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div><div><h4>Follow</h4><a href="#">TikTok</a><a href="https://www.instagram.com/calvin854394?stkn=MWl4YzI4aW93OW9zNw==" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61558114116767&mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener">Facebook</a></div></div></div><div class="wrap footer-bottom"><p>© <span id="year"></span> Lemways Nest Ltd. All rights reserved.</p><p style="opacity:.6">Developed by Mwamba</p></div></footer>
+<footer class="site-footer"><div class="wrap footer-inner"><div><span style="font-family:Fraunces;font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px"><img src="logo.png" alt="" width="28" height="28" style="object-fit:contain;border-radius:6px"> Lemways&nbsp;Nest</span><p style="margin-top:8px;font-size:13px;opacity:.6">Registered in Kenya. Founded 2021.<br>Off Muthangari Road, Lavington, Nairobi.</p></div><div class="footer-links"><div><h4>Site</h4><a href="#properties">Properties</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div><div><h4>Follow</h4><a href="#">TikTok</a><a href="https://www.instagram.com/calvin854394?stkn=MWl4YzI4aW93OW9zNw==" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61558114116767&mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener">Facebook</a></div></div></div><div class="wrap footer-bottom"><p>© <span id="year"></span> Lemways Nest Ltd. All rights reserved.</p><p style="opacity:.6">Built in Lavington</p></div></footer>
 
 <div class="modal-overlay" id="modalOverlay">
-  <div class="modal" id="propertyModal">
+  <div class="modal" id="propertyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
-    
     <div class="modal-gallery">
       <div class="modal-main-img" id="modalMainImg"></div>
       <div class="modal-thumbs" id="modalThumbs"></div>
     </div>
-
     <div class="modal-info">
-      <div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-          <span class="tag" id="modalTag">For sale</span>
-          <span class="modal-code" id="modalCode">LN-001</span>
-        </div>
-        
-        <h2 id="modalTitle">Property Title</h2>
-        <p class="modal-loc" id="modalLoc">Location details</p>
-        <p class="modal-price" id="modalPrice">Price</p>
-
-        <div class="modal-features">
-          <div>
-            <span>📍 Location</span>
-            <strong id="modalFullLoc">-</strong>
-          </div>
-          <div>
-            <span>🏠 Type</span>
-            <strong id="modalType">-</strong>
-          </div>
-          <div>
-            <span>👤 Agent</span>
-            <strong id="modalAgent">Agent</strong>
-          </div>
-          <div>
-            <span>🆔 Code</span>
-            <strong id="modalCode2">LN-001</strong>
-          </div>
-        </div>
-
-        <p class="modal-desc">✓ Verified listing  •  ✓ Title checked  •  Viewing available 9am-5pm daily</p>
+      <span class="tag" id="modalTag">For sale</span>
+      <span class="modal-code" id="modalCode">LN-001</span>
+      <h2 id="modalTitle">Title</h2>
+      <p class="modal-loc" id="modalLoc">Location</p>
+      <p class="modal-price" id="modalPrice">Price</p>
+      <div class="modal-features">
+        <div><span>Location</span><strong id="modalFullLoc">-</strong></div>
+        <div><span>Type</span><strong id="modalType">-</strong></div>
+        <div><span>Agent</span><strong id="modalAgent">Agent 1</strong></div>
+        <div><span>Code</span><strong id="modalCode2">LN-001</strong></div>
       </div>
-
+      <p class="modal-desc">Verified listing. Title checked. Viewing available daily 9am-5pm. Call to confirm. We walk every listing.</p>
+      <p class="picker-label">Choose an agent</p>
+      <div class="agent-picker" id="agentPicker" role="radiogroup" aria-label="Choose an agent"></div>
       <div class="modal-actions">
         <button class="btn full" id="modalWhatsAppBtn" style="background:#25D366;color:white;font-weight:700">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.54 2 2.06 6.45 2.06 11.94c0 1.75.46 3.46 1.33 4.97L2.06 22l5.24-1.37a9.84 9.84 0 0 0 4.71 1.2h.01c5.49 0 9.97-4.45 9.97-9.94a9.8 9.8 0 0 0-2.94-6.98zm-7.02 14.7h-.01a8.13 8.13 0 0 1-4.15-1.13l-.3-.18-3.11.81.83-3.03-.2-.31a8.2 8.2 0 0 1-1.27-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.81c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.65.81-.8.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
-          <span>Chat on WhatsApp</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.54 2 2.06 6.45 2.06 11.94c0 1.75.46 3.46 1.33 4.97L2.06 22l5.24-1.37a9.84 9.84 0 0 0 4.71 1.2h.01c5.49 0 9.97-4.45 9.97-9.94a9.8 9.8 0 0 0-2.94-6.98zm-7.02 14.7h-.01a8.13 8.13 0 0 1-4.15-1.13l-.3-.18-3.11.81.83-3.03-.2-.31a8.2 8.2 0 0 1-1.27-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.81c0 4.54-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.65.81-.8.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+          Chat on WhatsApp - <span id="modalAgentName">Agent 1</span>
         </button>
-        <a href="tel:+254758517124" class="btn btn-ghost-dark full" id="modalCallBtn">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-          <span>Call Office</span>
-        </a>
+        <a href="tel:+254762840600" class="btn btn-ghost-dark full" id="modalCallBtn">Call Agent 1: +254 762 840600</a>
       </div>
-
-      <p class="modal-note">Connected to <span id="modalAgentNote">our agent</span> who knows this property well</p>
+      <p class="modal-note">You will be connected to <span id="modalAgentNote">Agent 1</span> who knows this property well.</p>
     </div>
   </div>
 </div>
 
-<script>
-// ===== LEMWAYS NEST - FIXED MODERN JS =====
-document.addEventListener('DOMContentLoaded', () => {
-
-  // Year
-  const yearEl = document.getElementById('year');
-  if(yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // ===== NAVIGATION - FIXED RESPONSIVE =====
-  const header = document.getElementById('siteHeader');
-  const toggle = document.getElementById('navToggle');
-  const nav = document.getElementById('mainNav');
-  const navOverlay = document.getElementById('navOverlay');
-
-  if(header){
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('is-scrolled', window.scrollY > 20);
-    }, { passive: true });
-  }
-
-  const openNav = () => {
-    if(!nav || !toggle) return;
-    nav.classList.add('is-open');
-    toggle.classList.add('is-active');
-    toggle.setAttribute('aria-expanded','true');
-    if(navOverlay) navOverlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  };
-  
-  const closeNav = () => {
-    if(!nav || !toggle) return;
-    nav.classList.remove('is-open');
-    toggle.classList.remove('is-active');
-    toggle.setAttribute('aria-expanded','false');
-    if(navOverlay) navOverlay.classList.remove('is-open');
-    document.body.style.overflow = '';
-  };
-
-  if(toggle && nav){
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      nav.classList.contains('is-open') ? closeNav() : openNav();
-    });
-    
-    // Close nav when clicking navigation links
-    nav.querySelectorAll('a[href^="#"]').forEach(a => {
-      if(!a.classList.contains('nav-mobile-contact')){
-        a.addEventListener('click', closeNav);
-      }
-    });
-  }
-
-  // Close nav when clicking overlay
-  if(navOverlay) {
-    navOverlay.addEventListener('click', (e) => {
-      if(e.target === navOverlay) {
-        e.stopPropagation();
-        closeNav();
-      }
-    });
-  }
-
-  // Close nav on Escape
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape'){
-      closeNav();
-      closeModal();
-    }
-  });
-
-  // ===== FILTERS - SMOOTH =====
-  const buttons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.property-card');
-  if(buttons.length && cards.length){
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        const f = btn.dataset.filter;
-        cards.forEach(card => {
-          const match = f === 'all' || card.dataset.category === f;
-          card.style.display = match? 'flex' : 'none';
-          if(match){
-            card.style.animation = 'none';
-            card.offsetHeight;
-            card.style.animation = 'modalIn .4s ease';
-          }
-        });
-      });
-    });
-  }
-
-  // ===== AGENT ROTATION =====
-  const agents = [
-    { name: 'Agent 1', phone: '254762840600', short: 'Agent 1 - Lavington Office' },
-    { name: 'Agent 2', phone: '254713854394', short: 'Agent 2 - Kilimani Office' }
-  ];
-  let idx = 0;
-  try{
-    const s = localStorage.getItem('ln_agent_idx');
-    idx = s? parseInt(s,10) : 0;
-    if(isNaN(idx)) idx = 0;
-  }catch{}
-  const getNextAgent = () => {
-    const a = agents[idx];
-    idx = (idx + 1) % agents.length;
-    try{ localStorage.setItem('ln_agent_idx', String(idx)); }catch{}
-    return a;
-  };
-
-  // ===== MODAL + WHATSAPP =====
-  const overlay = document.getElementById('modalOverlay');
-  const closeBtn = document.getElementById('modalClose');
-  const waBtn = document.getElementById('modalWhatsAppBtn');
-  let activeAgent = agents[0];
-  let activeCard = null;
-
-  const setText = (id, t) => {
-    const el = document.getElementById(id);
-    if(el) el.textContent = t;
-  };
-
-  const buildMsg = (card, agent) => {
-    return `Hello ${agent.name} - Lemways Nest\n\nI'm interested in:\n*${card.dataset.title || 'Property'}* (${card.dataset.code || ''})\n${card.dataset.type || ''}\nPrice: ${card.dataset.price || ''}\nLocation: ${card.dataset.location || ''}\n\nLink: ${location.href}\n\nPlease confirm:\n1. Available?\n2. Viewing time?\n3. More photos?\n\nMy name: `;
-  };
-
-  const openWA = (url) => {
-    location.href = url;
-  };
-
-  const directWA = (card) => {
-    if(!card) return;
-    const ag = getNextAgent();
-    openWA(`https://wa.me/${ag.phone}?text=${encodeURIComponent(buildMsg(card, ag))}`);
-  };
-
-  const openModal = (card) => {
-    if(!card) return;
-    if(!overlay) return directWA(card);
-
-    activeCard = card;
-    activeAgent = getNextAgent();
-
-    let mainImg = '';
-    try{
-      mainImg = card.querySelector('.property-image').style.backgroundImage.slice(5,-2).replace(/"/g,'');
-    }catch{
-      mainImg = 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=70';
-    }
-
-    const tag = card.querySelector('.tag')?.textContent || 'For sale';
-    setText('modalTag', tag);
-    setText('modalCode', card.dataset.code || 'LN-000');
-    setText('modalCode2', card.dataset.code || 'LN-000');
-    setText('modalTitle', card.dataset.title || 'Property');
-    setText('modalLoc', card.dataset.location || '');
-    setText('modalPrice', card.dataset.price || '');
-    setText('modalFullLoc', card.dataset.location || '');
-    setText('modalType', card.dataset.type || '');
-    setText('modalAgent', activeAgent.name);
-    setText('modalAgentNote', activeAgent.name);
-
-    const callBtn = document.getElementById('modalCallBtn');
-    if(callBtn){
-      callBtn.href = `tel:+${activeAgent.phone}`;
-      callBtn.innerHTML = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg><span>Call: +${activeAgent.phone}</span>`;
-    }
-
-    const mainImgEl = document.getElementById('modalMainImg');
-    const thumbsEl = document.getElementById('modalThumbs');
-    if(mainImgEl) mainImgEl.style.backgroundImage = `url('${mainImg}')`;
-    if(thumbsEl){
-      thumbsEl.innerHTML = '';
-      const imgs = card.dataset.images? card.dataset.images.split(',') : [mainImg];
-      imgs.forEach((img,i) => {
-        const clean = img.trim();
-        if(!clean) return;
-        const d = document.createElement('div');
-        d.style.backgroundImage = `url('${clean}')`;
-        if(i===0) d.classList.add('is-active');
-        d.addEventListener('click', () => {
-          if(mainImgEl) mainImgEl.style.backgroundImage = `url('${clean}')`;
-          thumbsEl.querySelectorAll('div').forEach(t => t.classList.remove('is-active'));
-          d.classList.add('is-active');
-        });
-        thumbsEl.appendChild(d);
-      });
-    }
-
-    overlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    if(!overlay) return;
-    overlay.classList.remove('is-open');
-    const navOpen = nav?.classList.contains('is-open');
-    if(!navOpen) document.body.style.overflow = '';
-  };
-
-  if(closeBtn) closeBtn.addEventListener('click', closeModal);
-  if(overlay) overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
-
-  cards.forEach(card => card.addEventListener('click', () => openModal(card)));
-
-  if(waBtn){
-    waBtn.addEventListener('click', e => {
-      e.preventDefault();
-      if(!activeCard) return;
-
-      const url = `https://wa.me/${activeAgent.phone}?text=${encodeURIComponent(buildMsg(activeCard, activeAgent))}`;
-      const orig = waBtn.innerHTML;
-
-      waBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="12" r="1" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="0.6s" repeatCount="indefinite"/></circle><circle cx="19" cy="12" r="1" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="0.6s" repeatCount="indefinite" begin="0.1s"/></circle><circle cx="5" cy="12" r="1" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="0.6s" repeatCount="indefinite" begin="0.2s"/></circle></svg><span>Opening WhatsApp...</span>';
-      waBtn.disabled = true;
-
-      try{
-        fetch('contact.php',{
-          method:'POST',
-          headers:{'Content-Type':'application/x-www-form-urlencoded'},
-          body:new URLSearchParams({
-            name:`WA - ${activeCard.dataset.title||''}`,
-            email:'wa@lead.com',
-            interest:`${activeCard.dataset.type||''} | ${activeCard.dataset.code||''} | ${activeAgent.name}`,
-            message:`Lead -> ${activeAgent.phone} for ${activeCard.dataset.code||''}`
-          })
-        });
-      }catch{}
-
-      openWA(url);
-
-      setTimeout(() => {
-        waBtn.innerHTML = orig;
-        waBtn.disabled = false;
-        closeModal();
-      }, 1500);
-    });
-  }
-
-  // ===== CONTACT FORM =====
-  const form = document.getElementById('contactForm');
-  const note = document.getElementById('formNote');
-  if(form && note){
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      if(!btn) return;
-      const orig = btn.textContent;
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      note.textContent = '';
-      try{
-        const res = await fetch('contact.php',{method:'POST', body:new FormData(form)});
-        const txt = await res.text();
-        let data; try{ data = JSON.parse(txt); }catch{ data = {ok:false, msg:txt}; }
-        note.style.color = data.ok? '#193226' : '#a33';
-        if(data.ok){
-          note.innerHTML = data.msg + (data.whatsapp? `<br><br><a href="${data.whatsapp}" target="_blank" style="text-decoration:underline;font-weight:600">Continue on WhatsApp →</a>` : '');
-          form.reset();
-        }else{
-          note.textContent = data.msg || 'Error sending';
-        }
-      }catch{
-        note.textContent = 'Could not send. WhatsApp us +254 758 517124';
-        note.style.color = '#a33';
-      }finally{
-        btn.textContent = orig;
-        btn.disabled = false;
-      }
-    });
-  }
-
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
