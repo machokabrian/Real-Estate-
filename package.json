@@ -1,0 +1,12 @@
+{
+  "name": "lemways-nest-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Lemways Nest Ltd – real estate website (static site + Cloudinary-backed admin on Vercel)",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build-pages.mjs",
+    "preview": "npm run build && npx serve dist"
+  }
+}

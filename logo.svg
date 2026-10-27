@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Lemways Nest">
+  <rect width="64" height="64" rx="14" fill="#193226"/>
+  <g fill="none" stroke="#d3a95a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 31 32 12l22 19"/>
+    <path d="M16 28v24h32V28"/>
+    <path d="M26 52V38h12v14"/>
+    <path d="M22 22c4 3 16 3 20 0" opacity=".55"/>
+  </g>
+</svg>

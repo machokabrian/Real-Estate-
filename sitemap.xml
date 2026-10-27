@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder: scripts/build-pages.mjs regenerates this on every deploy with a page for each property. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>%SITE_URL%/</loc></url>
+</urlset>
