@@ -2,7 +2,7 @@
 
 A responsive real estate website for [one line: e.g. browsing property listings and contacting an agent].
 
-**Live demo:** https://real-estate-azure-one-44.vercel.app
+**Live demo:** https://www.lemwaysnest.co.ke
 
 ![Screenshot](screenshot.png)
 
