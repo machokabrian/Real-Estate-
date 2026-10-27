@@ -1,0 +1,55 @@
+{
+  "settings": {},
+  "team": [],
+  "reviews": [],
+  "listings": [
+    {
+      "id": "seed-001", "code": "LN-001", "slug": "muthangari-grove-villas", "sample": true,
+      "title": "Muthangari Grove Villas", "status": "sale", "category": "residential",
+      "location": "Lavington", "beds": 4, "baths": 4, "propertyType": "villa",
+      "price": 85000000, "images": [], "featured": true, "published": true,
+      "features": ["Four en-suite bedrooms", "Gated grove with 24-hour security", "Domestic quarters", "Private garden", "Ample parking"],
+      "description": "A four-bedroom villa in a quiet gated grove off Muthangari Road, minutes from Lavington's shops and schools.\n\nThis is a sample listing – replace it with your own from the admin panel."
+    },
+    {
+      "id": "seed-002", "code": "LN-002", "slug": "kilimani-loft-12b", "sample": true,
+      "title": "Kilimani Loft 12B", "status": "let", "category": "residential",
+      "location": "Kilimani", "beds": 2, "baths": 2, "propertyType": "apartment",
+      "price": 55000, "images": [], "featured": false, "published": true,
+      "features": ["Open-plan living", "Balcony", "Backup generator", "Lift and secure parking", "Fibre ready"],
+      "description": "A bright two-bedroom apartment in the heart of Kilimani, close to restaurants and main routes.\n\nThis is a sample listing – replace it with your own from the admin panel."
+    },
+    {
+      "id": "seed-003", "code": "LN-003", "slug": "karen-riverside-plot", "sample": true,
+      "title": "Karen Riverside Plot", "status": "sale", "category": "land",
+      "location": "Karen", "size": 0.5, "sizeUnit": "acre",
+      "price": 38000000, "images": [], "featured": false, "published": true,
+      "features": ["Half-acre plot", "Quiet residential road", "Water and power nearby", "Title available for inspection"],
+      "description": "A half-acre residential plot in Karen, ready to build on.\n\nThis is a sample listing – replace it with your own from the admin panel."
+    },
+    {
+      "id": "seed-004", "code": "LN-004", "slug": "westlands-business-suites", "sample": true,
+      "title": "Westlands Business Suites", "status": "let", "category": "commercial",
+      "location": "Westlands", "size": 3200, "sizeUnit": "sq ft",
+      "price": 250000, "images": [], "featured": false, "published": true,
+      "features": ["Open-plan floor", "Lift access", "Backup power", "Visitor and tenant parking", "24-hour security"],
+      "description": "Flexible office space in a managed Westlands building.\n\nThis is a sample listing – replace it with your own from the admin panel."
+    },
+    {
+      "id": "seed-005", "code": "LN-005", "slug": "runda-acacia-house", "sample": true,
+      "title": "Runda Acacia House", "status": "sale", "category": "residential",
+      "location": "Runda", "beds": 5, "baths": 5, "propertyType": "house",
+      "price": 120000000, "images": [], "featured": false, "published": true,
+      "features": ["Five bedrooms", "Mature gardens", "Staff quarters", "Study and family lounge", "Secure estate"],
+      "description": "A five-bedroom family house in a secure Runda estate.\n\nThis is a sample listing – replace it with your own from the admin panel."
+    },
+    {
+      "id": "seed-006", "code": "LN-006", "slug": "lavington-courtyard-apartments", "sample": true,
+      "title": "Lavington Courtyard Apartments", "status": "let", "category": "residential",
+      "location": "Lavington", "beds": 3, "baths": 3, "propertyType": "apartment",
+      "price": 68000, "images": [], "featured": false, "published": true,
+      "features": ["Three bedrooms", "Shared courtyard", "Backup water", "Covered parking", "Pet friendly on request"],
+      "description": "A three-bedroom apartment around a landscaped courtyard in Lavington.\n\nThis is a sample listing – replace it with your own from the admin panel."
+    }
+  ]
+}
