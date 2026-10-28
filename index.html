@@ -1,186 +1,295 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lemways Nest Ltd – Real Estate in Nairobi</title>
-<meta name="description" content="Lemways Nest Ltd – buying, letting and managing property across Nairobi since 2021. Offices off Muthangari Road, Lavington.">
-<meta name="theme-color" content="#193226">
-<link rel="canonical" href="%SITE_URL%/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Lemways Nest">
-<meta property="og:title" content="Lemways Nest Ltd – Real Estate in Nairobi">
-<meta property="og:description" content="Buy, let and manage property across Nairobi – Lavington, Kilimani, Karen, Runda, Westlands and beyond.">
-<meta property="og:url" content="%SITE_URL%/">
-<meta property="og:image" content="%SITE_URL%/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Lemways Nest Ltd","url":"%SITE_URL%/","logo":"%SITE_URL%/logo.svg","foundingDate":"2021","areaServed":"Nairobi, Kenya","address":{"@type":"PostalAddress","streetAddress":"Off Muthangari Road, Lavington","addressLocality":"Nairobi","addressCountry":"KE"}}
-</script>
-</head>
-<body class="page-home">
-<a class="skip" href="#properties">Skip to listings</a>
+/* Lemways Nest – modern refresh: deep forest, warm stone and brass */
+:root{
+  --green:#12281f; --green-2:#1d3a2e; --green-3:#2b5a47;
+  --cream:#f4f2ec; --paper:#fbfaf7; --line:#e3e0d6;
+  --brass:#b3853a; --brass-2:#d9b36a;
+  --ink:#14201a; --muted:#5d6b63; --err:#b3261e; --ok:#1f6b45; --wa:#1fa855;
+  --r:18px; --r-sm:12px;
+  --shadow:0 18px 44px -16px rgba(18,40,31,.22),0 4px 12px -4px rgba(18,40,31,.08);
+  --shadow-sm:0 2px 6px rgba(18,40,31,.06),0 8px 20px -8px rgba(18,40,31,.12);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;font:400 16px/1.7 var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body.noscroll{overflow:hidden}
+[hidden]{display:none!important}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--brass-2);color:var(--green)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0 0 .5em;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(2.5rem,6vw,4.4rem)} h2{font-size:clamp(1.8rem,3.6vw,2.7rem)} h3{font-size:1.28rem;letter-spacing:-.012em}
+p{margin:0 0 1em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--brass);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--brass-2);outline-offset:3px;border-radius:6px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 .72rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--brass-2);margin-bottom:1.2rem}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:currentColor;opacity:.8}
+.eyebrow.dark{color:var(--brass)}
+.fine{font-size:.82rem;color:var(--muted)}
 
-<div class="topbar"><div class="wrap">
-  <span data-bind="address">Off Muthangari Road, Lavington, Nairobi</span>
-  <span class="topbar-r"><a data-href="tel:{phone1Tel}" data-bind="phone1" href="tel:+254762840600">+254 762 840600</a> <a data-href="tel:{phone2Tel}" data-bind="phone2" data-hide-empty href="tel:+254713854394">+254 713 854394</a></span>
-</div></div>
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.9em 1.55em;border-radius:999px;border:1.5px solid transparent;font:600 .94rem/1 var(--sans);text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),background .2s,color .2s,border-color .2s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btn-sm{padding:.66em 1.2em;font-size:.85rem}
+.btn-gold{background:linear-gradient(180deg,var(--brass-2),var(--brass));color:#1c1405;box-shadow:0 8px 20px -8px rgba(179,133,58,.7)}
+.btn-gold:hover{background:linear-gradient(180deg,#e2be7a,#bd8d3f);box-shadow:0 12px 26px -8px rgba(179,133,58,.8)}
+.btn-light{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.04);backdrop-filter:blur(6px)}.btn-light:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.7)}
+.btn-ghost{border-color:var(--line);color:var(--green);background:#fff}.btn-ghost:hover{border-color:var(--green);box-shadow:var(--shadow-sm)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 20px -8px rgba(31,168,85,.7)}.btn-wa:hover{background:#188f48}
 
-<header class="site-header"><div class="wrap bar">
-  <a class="brand" href="/"><img src="/logo.svg" alt="" width="40" height="40"><span>Lemways <b>Nest</b></span></a>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span></button>
-  <nav class="site-nav" id="nav" aria-label="Main">
-    <a href="#properties">Properties</a><a href="#services">Services</a><a href="#about">About</a><a href="#team" id="nav-team" hidden>Team</a><a href="#contact">Contact</a>
-    <a class="btn btn-gold btn-sm" href="#contact">Talk to an agent</a>
-  </nav>
-</div></header>
+/* top bar + header */
+.topbar{background:#0c1d16;color:#b9cdc2;font-size:.8rem;letter-spacing:.01em}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:9px;padding-bottom:9px}
+.topbar a{text-decoration:none;margin-left:18px;transition:color .2s}.topbar a:hover{color:var(--brass-2)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.82);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.site-header.scrolled{border-color:var(--line);box-shadow:0 8px 28px -12px rgba(18,40,31,.14)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:74px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font:500 1.35rem/1 var(--serif);color:var(--green);letter-spacing:-.02em}
+.brand b{color:var(--brass);font-weight:600}
+.site-nav{display:flex;align-items:center;gap:30px}
+.site-nav a:not(.btn){position:relative;text-decoration:none;font-weight:500;font-size:.93rem;color:var(--green);padding:6px 0}
+.site-nav a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.site-nav a:not(.btn):hover{color:var(--brass)}
+.site-nav a:not(.btn):hover::after{transform:scaleX(1)}
+.nav-toggle{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{position:absolute;left:11px;width:22px;height:2px;border-radius:2px;background:var(--green);content:"";transition:transform .2s}
+.nav-toggle span{top:21px}.nav-toggle span::before{top:-7px;left:0}.nav-toggle span::after{top:7px;left:0}
 
-<main>
-<section class="hero" id="top">
-  <div class="wrap hero-in">
-    <div class="hero-copy">
-      <p class="eyebrow">Lemways Nest Ltd · Nairobi</p>
-      <h1 data-bind="heroTitle">Property in Nairobi, handled properly.</h1>
-      <p class="lead" data-bind="heroText">We find, sell, let and manage homes and commercial space across the city, working out of our office off Muthangari Road in Lavington.</p>
-      <div class="hero-actions"><a class="btn btn-gold" href="#properties">View listings</a><a class="btn btn-light" href="#contact">Talk to an agent</a></div>
-    </div>
-    <div class="hero-art" id="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 320 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 150 160 34l140 116"/><path d="M52 132v138h216V132"/><path d="M130 270V190h60v80"/><path d="M84 168h28v28H84zM208 168h28v28h-28z"/><path d="M160 34c-10-18 4-28 14-22" opacity=".5"/></svg>
-    </div>
-  </div>
-  <div class="wrap stats">
-    <div><b data-bind="founded">2021</b><span>Established</span></div>
-    <div><b>Lavington</b><span>Head office</span></div>
-    <div><b id="stat-count">–</b><span>Live listings</span></div>
-  </div>
-</section>
+/* hero */
+.hero{background:radial-gradient(900px 480px at 88% -8%,rgba(217,179,106,.18),transparent 60%),radial-gradient(1100px 560px at 70% 0%,var(--green-3),transparent 62%),linear-gradient(180deg,var(--green-2),var(--green));color:#fff;padding:92px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 70% 30%,#000,transparent 72%);pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;padding-bottom:72px}
+.hero h1{color:#fff;max-width:14ch;letter-spacing:-.03em}
+.lead{font-size:1.18rem;line-height:1.65;color:#cfe0d6;max-width:54ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:2rem}
+.hero-art{color:var(--brass-2);opacity:.95;min-height:280px;display:flex;align-items:center;justify-content:center;border-radius:var(--r);background-size:cover;background-position:center}
+.hero-art svg{width:100%;max-width:340px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.3))}
+.hero-art.has-photo{min-height:380px;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)}
+.stats{position:relative;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.14)}
+.stats div{padding:26px 0;display:flex;flex-direction:column;gap:4px}
+.stats div+div{padding-left:28px;border-left:1px solid rgba(255,255,255,.1)}
+.stats b{font:500 1.75rem/1.2 var(--serif);letter-spacing:-.02em}
+.stats span{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#a3bdaf}
 
-<section class="sec" id="about">
-  <div class="wrap about-grid">
-    <div data-reveal>
-      <p class="eyebrow dark">Established · Lavington · Nairobi</p>
-      <h2 data-bind="aboutTitle">Started on one street. Still walking every listing.</h2>
-      <p data-bind="aboutText">Lemways Nest Ltd opened in 2021, off Muthangari Road in Lavington. What began as a small team helping neighbours buy and let homes nearby has grown into a full property practice working across Nairobi – without losing the street-level knowledge of the estates where we started.</p>
-      <dl class="about-facts">
-        <div><dt>Founded</dt><dd data-bind="founded">2021</dd></div>
-        <div><dt>Office</dt><dd data-bind="address">Off Muthangari Road, Lavington</dd></div>
-        <div><dt>Coverage</dt><dd data-bind="coverage">Lavington, Kilimani, Karen, Runda, Westlands &amp; beyond</dd></div>
-      </dl>
-    </div>
-    <div data-reveal>
-      <img class="about-img" id="about-img" alt="" hidden>
-      <blockquote><p data-bind="aboutQuote">We still walk every property we list. If we wouldn’t put our own family in it, it doesn’t go on the list.</p><footer>– The Lemways Nest team</footer></blockquote>
-    </div>
-  </div>
-</section>
+/* sections */
+.sec{padding:100px 0}
+.sec-alt{background:var(--cream)}
+.sec-green{background:radial-gradient(800px 400px at 0% 0%,var(--green-2),transparent 70%),var(--green);color:#dbe9e1}
+.sec-green h2,.sec-green h3{color:#fff}
+.sec-head{max-width:660px;margin-bottom:2.6rem}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+.about-facts{display:grid;gap:0;margin:2rem 0 0}
+.about-facts div{display:grid;grid-template-columns:120px 1fr;gap:12px;border-top:1px solid var(--line);padding:14px 0}
+.about-facts dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);padding-top:4px}
+.about-facts dd{margin:0;font-weight:500}
+.about-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);margin-bottom:22px;box-shadow:var(--shadow)}
+blockquote{margin:0}
+.about-grid blockquote{background:linear-gradient(160deg,var(--green-2),var(--green));color:#fff;border-radius:var(--r);padding:40px 38px 32px;position:relative;box-shadow:var(--shadow);overflow:hidden}
+.about-grid blockquote::before{content:"“";font:600 6rem/1 var(--serif);color:var(--brass-2);position:absolute;top:8px;left:24px;opacity:.55}
+.about-grid blockquote p{font:500 1.35rem/1.5 var(--serif);margin:30px 0 16px;letter-spacing:-.01em}
+.about-grid blockquote footer{font-size:.85rem;color:#a3bdaf}
 
-<section class="sec sec-alt" id="properties">
-  <div class="wrap">
-    <div class="sec-head" data-reveal><p class="eyebrow dark">Properties</p><h2>Current listings</h2><p>Open any property for photos, details and to chat with an agent on WhatsApp.</p></div>
-    <div class="filters" data-reveal>
-      <div class="chips" id="chips" role="group" aria-label="Filter by type">
-        <button class="chip on" type="button" data-cat="all">All</button>
-        <button class="chip" type="button" data-cat="residential">Residential</button>
-        <button class="chip" type="button" data-cat="commercial">Commercial</button>
-        <button class="chip" type="button" data-cat="land">Land</button>
-        <button class="chip" type="button" data-cat="saved" id="chip-saved">♥ Saved <span id="saved-n">0</span></button>
-      </div>
-      <div class="filter-row">
-        <label class="sr" for="q">Search</label>
-        <input id="q" type="search" placeholder="Search area or property name…" autocomplete="off">
-        <label class="sr" for="st">Status</label>
-        <select id="st"><option value="all">Buy or rent</option><option value="sale">For sale</option><option value="let">To let</option></select>
-      </div>
-    </div>
-    <div class="grid" id="grid" aria-live="polite">
-      <div class="card skeleton"></div><div class="card skeleton"></div><div class="card skeleton"></div>
-    </div>
-    <p class="empty" id="empty" hidden></p>
-  </div>
-</section>
+/* filters + grid */
+.filters{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-bottom:32px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;color:var(--green);border-radius:999px;padding:.62em 1.2em;font:500 .88rem/1 var(--sans);cursor:pointer;transition:all .2s var(--ease)}
+.chip:hover{border-color:var(--green);transform:translateY(-1px)}
+.chip.on{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 8px 18px -8px rgba(18,40,31,.6)}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap}
+input,select,textarea{font:inherit;color:inherit}
+.filter-row input,.filter-row select{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.68em 1.2em;min-width:0;transition:border-color .2s,box-shadow .2s}
+.filter-row input:focus,.filter-row select:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 4px rgba(179,133,58,.15)}
+.filter-row input{width:min(270px,100%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;position:relative;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .2s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.card-media{display:block;position:relative;aspect-ratio:16/11;background:var(--green-2);overflow:hidden}
+.card-media::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(10,24,17,.35));pointer-events:none}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.card:hover .card-media img{transform:scale(1.06)}
+.badge{display:inline-block;font:600 .68rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:.6em .95em;border-radius:999px;background:var(--green);color:#fff}
+.card-media .badge{position:absolute;left:14px;top:14px;z-index:1;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.badge-let{background:var(--brass)}
+.fav{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.95);color:var(--green);display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.18);z-index:2;transition:transform .2s var(--ease)}
+.fav:hover{transform:scale(1.1)}
+.fav svg{fill:none;stroke:currentColor;stroke-width:2}
+.fav.on{color:#d0392f}.fav.on svg{fill:currentColor}
+.card-body{padding:20px 22px 24px}
+.card-body h3{margin-bottom:.25em}.card-body h3 a{text-decoration:none}
+.card-sub{color:var(--muted);font-size:.92rem;margin-bottom:.7em}
+.card-price{font:600 1.3rem/1.2 var(--serif);color:var(--green);margin-bottom:.9em;letter-spacing:-.01em}
+.card-link{font-weight:600;font-size:.9rem;color:var(--brass);text-decoration:none;transition:letter-spacing .2s}
+.card-link:hover{text-decoration:underline;text-underline-offset:4px}
+.skeleton{min-height:380px;background:linear-gradient(100deg,#efebe0 30%,#f8f5ed 50%,#efebe0 70%);background-size:300% 100%;animation:sh 1.4s infinite}
+@keyframes sh{to{background-position:-100% 0}}
+.ph{width:100%;height:100%;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--brass-2);background:linear-gradient(135deg,var(--green-2),var(--green));font-size:.85rem;letter-spacing:.06em}
+.empty{text-align:center;color:var(--muted);padding:48px 0}
 
-<section class="sec" id="services">
-  <div class="wrap">
-    <div class="sec-head" data-reveal><p class="eyebrow dark">Services</p><h2>What we handle</h2></div>
-    <div class="services">
-      <article class="svc" data-reveal><span class="svc-n">01</span><h3>Buying &amp; selling</h3><p>We represent buyers and sellers across Nairobi’s estates, from Lavington to Karen and Kilimani.</p></article>
-      <article class="svc" data-reveal><span class="svc-n">02</span><h3>Letting &amp; leasing</h3><p>We match tenants to vetted homes and offices, and handle the lease paperwork.</p></article>
-      <article class="svc" data-reveal><span class="svc-n">03</span><h3>Property management</h3><p>Rent collection, maintenance and tenant relations for owners who’d rather not do it themselves.</p></article>
-      <article class="svc" data-reveal><span class="svc-n">04</span><h3>Valuation &amp; advisory</h3><p>Market valuations and investment guidance based on what’s actually selling now.</p></article>
-    </div>
-  </div>
-</section>
+/* services / team / reviews */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.svc::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--brass),var(--brass-2));transform:scaleX(.2);transform-origin:left;transition:transform .5s var(--ease)}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.svc:hover::before{transform:scaleX(1)}
+.svc-n{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--cream);font:600 .95rem/1 var(--serif);color:var(--brass)}
+.svc h3{margin:1em 0 .45em}.svc p{color:var(--muted);margin:0}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:26px}
+.member{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 20px 22px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.member:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.member img,.member-ini{width:116px;height:116px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:3px solid #fff;box-shadow:0 0 0 2px var(--brass-2),var(--shadow-sm)}
+.member-ini{display:grid;place-items:center;background:linear-gradient(135deg,var(--green-3),var(--green));color:var(--brass-2);font:500 1.8rem/1 var(--serif)}
+.role{color:var(--brass);font-weight:600;font-size:.86rem}
+.member p{font-size:.92rem;color:var(--muted)}
+.member-links a{margin:0 8px;font-weight:600;font-size:.88rem;color:var(--green);text-underline-offset:4px}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.review{margin:0;background:var(--cream);border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.review:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.stars{color:var(--brass);letter-spacing:3px}.stars span{color:#d6cdb5}
+.review blockquote{margin:.7em 0 1.1em;font-size:1.02rem}
+.review figcaption{font-size:.9rem;color:var(--muted);font-weight:500}
 
-<section class="sec sec-alt" id="team" hidden>
-  <div class="wrap">
-    <div class="sec-head" data-reveal><p class="eyebrow dark">Our people</p><h2>Meet the team</h2></div>
-    <div class="team-grid" id="team-grid"></div>
-  </div>
-</section>
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.info-list{list-style:none;margin:1.6rem 0;padding:0}
+.info-list li{display:flex;flex-wrap:wrap;gap:6px 14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+.info-list span{width:76px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2);padding-top:5px}
+.info-list a{text-decoration:none}.info-list a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-form{background:var(--paper);color:var(--ink);border-radius:var(--r);padding:36px;box-shadow:0 30px 70px -24px rgba(0,0,0,.5)}
+.contact-form h3{color:var(--green);font-size:1.5rem;margin-bottom:1em}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:600;font-size:.86rem;margin-bottom:6px;color:var(--green)}
+.field small{font-weight:400;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:.8em 1em;background:#fff;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 4px rgba(179,133,58,.16)}
+.hp{position:absolute;left:-9999px;height:0;width:0;opacity:0}
+.form-msg{margin:14px 0 0;font-size:.92rem}.form-msg.ok{color:var(--ok)}.form-msg.err{color:var(--err)}
 
-<section class="sec" id="reviews" hidden>
-  <div class="wrap">
-    <div class="sec-head" data-reveal><p class="eyebrow dark">Reviews</p><h2>What our clients say</h2></div>
-    <div class="reviews-grid" id="reviews-grid"></div>
-  </div>
-</section>
+/* footer */
+.site-footer{background:#0b1a14;color:#a3bdaf;padding-top:72px;font-size:.92rem}
+.site-footer .brand{color:#fff}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
+.foot h4{font:600 .72rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--brass-2);margin-bottom:18px}
+.foot a{display:block;text-decoration:none;margin-bottom:10px;transition:color .2s,transform .2s}.foot a:hover{color:#fff;transform:translateX(3px)}
+.foot a.brand{margin-bottom:14px}
+.legal{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.09);padding-top:22px;padding-bottom:28px;font-size:.82rem}
 
-<section class="sec sec-green" id="contact">
-  <div class="wrap contact-grid">
-    <div data-reveal>
-      <p class="eyebrow">Contact</p>
-      <h2>Come by the office</h2>
-      <p><strong data-bind="legalName">Lemways Nest Ltd</strong><br><span data-bind="address">Off Muthangari Road, Lavington, Nairobi</span></p>
-      <ul class="info-list">
-        <li><span>Phone</span><a data-href="tel:{phone1Tel}" data-bind="phone1" href="tel:+254762840600">+254 762 840600</a> <a data-href="tel:{phone2Tel}" data-bind="phone2" data-hide-empty href="tel:+254713854394">+254 713 854394</a></li>
-        <li><span>Email</span><a data-href="mailto:{email}" data-bind="email" data-hide-empty href="mailto:lemwaysnest@gmail.com">lemwaysnest@gmail.com</a></li>
-        <li><span>Hours</span><b data-bind="hours">Mon–Fri 8:30–17:30, Sat 9:00–13:00</b></li>
-      </ul>
-      <div class="map map-office"><iframe id="office-map" title="Map of our office" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Muthangari%20Road%2C%20Lavington%2C%20Nairobi%2C%20Kenya&z=15&output=embed"></iframe></div>
-      <p><a class="btn btn-wa" data-href="https://wa.me/{whatsapp}" data-hide-empty target="_blank" rel="noopener" href="https://wa.me/254762840600">Chat on WhatsApp</a>
-      <a class="btn btn-light" data-href="{mapUrl}" data-hide-empty target="_blank" rel="noopener" href="#contact">Get directions</a></p>
-    </div>
-    <form class="contact-form" id="contact-form" novalidate data-reveal>
-      <h3>Send us a message</h3>
-      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
-      <div class="field"><label for="f-phone">Phone <small>(optional)</small></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-      <div class="field"><label for="f-int">I’m interested in</label>
-        <select id="f-int" name="interest"><option>Buying a property</option><option>Renting a property</option><option>Selling / letting my property</option><option>Property management</option><option>Valuation &amp; advice</option></select></div>
-      <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="4" required></textarea></div>
-      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn btn-gold" type="submit" id="f-send">Send message</button>
-      <p class="form-msg" id="f-msg-out" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-</main>
+/* floating bits */
+.wa-float{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -6px rgba(31,168,85,.6),0 4px 10px rgba(0,0,0,.2);z-index:40;transition:transform .25s var(--ease)}
+.wa-float:hover{transform:scale(1.1)}
+.to-top{position:fixed;right:27px;bottom:92px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.95);backdrop-filter:blur(6px);color:var(--green);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:39;box-shadow:var(--shadow-sm)}
+.to-top:hover{transform:translateY(-3px)}
+.to-top.show{opacity:1;pointer-events:auto}
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;max-width:640px;margin:0 auto;background:rgba(18,40,31,.96);backdrop-filter:blur(12px);color:#dbe9e1;border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:18px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;z-index:70;box-shadow:0 20px 50px rgba(0,0,0,.4);font-size:.9rem}
+.cookie p{margin:0;flex:1 1 260px}.cookie a{color:var(--brass-2)}
+.modal{border:0;border-radius:var(--r);padding:0;max-width:700px;width:calc(100% - 28px);max-height:85vh;box-shadow:0 30px 80px rgba(0,0,0,.4);color:var(--ink)}
+.modal::backdrop{background:rgba(10,24,17,.62);backdrop-filter:blur(4px)}
+.modal-x{position:absolute;right:12px;top:10px;border:0;background:none;font-size:2rem;line-height:1;cursor:pointer;color:var(--muted);transition:color .2s}
+.modal-x:hover{color:var(--ink)}
+.modal-body{padding:36px 34px 30px;overflow:auto;max-height:85vh}
+.prose h2{font-size:1.7rem}.prose h3{font-size:1.1rem;margin-top:1.3em;font-family:var(--sans);font-weight:600}
+.prose li{margin-bottom:.4em}
 
-<footer class="site-footer"><div class="wrap foot">
-  <div><a class="brand" href="/"><img src="/logo.svg" alt="" width="36" height="36"><span>Lemways <b>Nest</b></span></a>
-    <p>Registered in Kenya. Founded <span data-bind="founded">2021</span>.<br><span data-bind="address">Off Muthangari Road, Lavington, Nairobi.</span></p></div>
-  <div><h4>Site</h4><a href="#properties">Properties</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-  <div><h4>Follow</h4>
-    <a data-href="{tiktok}" data-hide-empty target="_blank" rel="noopener" href="#" hidden>TikTok</a>
-    <a data-href="{instagram}" data-hide-empty target="_blank" rel="noopener" href="#" hidden>Instagram</a>
-    <a data-href="{facebook}" data-hide-empty target="_blank" rel="noopener" href="#" hidden>Facebook</a></div>
-  <div><h4>Legal</h4><a href="#" data-legal="privacy">Privacy policy</a><a href="#" data-legal="terms">Terms of use</a></div>
-</div>
-<div class="wrap legal"><span>© <span data-year>2026</span> Lemways Nest Ltd. All rights reserved.</span><span>Built in Lavington</span></div></footer>
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
 
-<a class="wa-float" data-href="https://wa.me/{whatsapp}" data-hide-empty data-track="whatsapp_click" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="https://wa.me/254762840600"><svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11 19.800L3 29l6.400-2A13 13 0 1 0 16 3zm0 2.400a10.600 10.600 0 1 1-5.600 19.600l-.4-.2-3.800 1.200 1.200-3.700-.3-.4A10.600 10.600 0 0 1 16 5.400zm-4 5.300c-.3 0-.7.100-1 .5-.4.400-1.300 1.300-1.300 3.100s1.300 3.600 1.500 3.800c.2.300 2.600 4.100 6.400 5.600 3.200 1.200 3.800 1 4.500.9.700-.1 2.200-.9 2.500-1.800.3-.9.300-1.600.2-1.800-.1-.2-.3-.3-.7-.5l-2.300-1.100c-.3-.1-.5-.2-.8.200l-1 1.200c-.2.200-.4.300-.7.100-.4-.2-1.400-.5-2.700-1.600-1-.9-1.600-2-1.800-2.300-.2-.4 0-.5.200-.7l.5-.6.300-.5c.1-.2 0-.4 0-.5l-1-2.500c-.2-.6-.5-.5-.7-.5z"/></svg></a>
+/* property page */
+.page-property main{padding:32px 0 88px}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px;font-size:.86rem;color:var(--muted);margin-bottom:24px}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--brass)}
+.prop{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:start}
+.gal-main{display:block;width:100%;aspect-ratio:3/2;border:0;padding:0;border-radius:var(--r);overflow:hidden;background:var(--green-2);cursor:zoom-in;box-shadow:var(--shadow)}
+.gal-main img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gal-main:hover img{transform:scale(1.03)}
+.gal-empty{cursor:default}
+.gal-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px;margin-top:12px}
+.gal-thumb{padding:0;border:2px solid transparent;border-radius:var(--r-sm);overflow:hidden;cursor:pointer;aspect-ratio:3/2;background:var(--green-2);opacity:.7;transition:opacity .2s,transform .2s}
+.gal-thumb:hover{opacity:1;transform:translateY(-2px)}
+.gal-thumb.on{border-color:var(--brass);opacity:1}
+.gal-thumb img{width:100%;height:100%;object-fit:cover}
+.prop-info{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow)}
+.prop-tags{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.code{font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+.prop-info h1{font-size:clamp(1.7rem,3vw,2.3rem)}
+.prop-loc{color:var(--muted)}
+.prop-price{font:600 1.85rem/1.2 var(--serif);color:var(--green);letter-spacing:-.02em}
+.agent-box{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-sm);padding:18px;margin:20px 0}
+.agent-name{margin-bottom:14px;font-size:.95rem}
+.agent-actions{display:grid;gap:10px}
+.agent-pick{display:block;font-size:.84rem;font-weight:600;color:var(--green);margin-bottom:12px}
+.agent-pick select{display:block;width:100%;margin-top:6px;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:.65em .85em;background:#fff}
+.prop-tools{display:flex;gap:10px}
+.prop-tools .btn.on{color:#d0392f;border-color:#d0392f}
+.note{font-size:.85rem;color:var(--muted);margin:16px 0 0}
+.prop-body{grid-column:1}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;margin:0 0 32px;padding:22px;background:var(--cream);border:1px solid var(--line);border-radius:var(--r-sm)}
+.facts dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.facts dd{margin:3px 0 0;font-weight:600}
+.prop-body h2{font-size:1.55rem;margin-top:1.5em}
+.desc p{color:#34433b}
+.features{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px 22px}
+.features li{padding-left:26px;position:relative}
+.features li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:6px;border-left:2px solid var(--brass);border-bottom:2px solid var(--brass);transform:rotate(-45deg)}
+.calc{margin-top:40px;padding:26px;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--shadow-sm)}
+.calc:empty{display:none}.calc h2{margin-top:0}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.calc label{font-size:.84rem;font-weight:600;color:var(--green)}
+.calc input{display:block;width:100%;margin-top:6px;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:.65em .85em;transition:border-color .2s,box-shadow .2s}
+.calc input:focus{outline:none;border-color:var(--brass);box-shadow:0 0 0 4px rgba(179,133,58,.16)}
+.calc-out{margin:18px 0 4px;font-size:1.05rem}.calc-out strong{font:600 1.4rem var(--serif);color:var(--green);display:block}
+.similar{margin-top:72px}
+.notfound{max-width:560px;margin:60px auto;text-align:center}
+.lb{position:fixed;inset:0;background:rgba(8,18,13,.95);backdrop-filter:blur(6px);z-index:90;display:grid;place-items:center}
+.lb-img{max-width:94vw;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;border-radius:50%;width:50px;height:50px;font-size:1.8rem;line-height:1;transition:background .2s}
+.lb button:hover{background:rgba(255,255,255,.26)}
+.lb-x{top:16px;right:16px}.lb-prev{left:14px;top:50%}.lb-next{right:14px;top:50%}
+.lb-count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#cfe0d6;font-size:.85rem}
 
-<script src="/config.js"></script>
-<script src="/shared.js"></script>
-<script src="/db.js"></script>
-<script src="/analytics.js"></script>
-<script src="/extras.js"></script>
-<script src="/details.js"></script>
-<script src="/script.js"></script>
-</body>
-</html>
+/* 404 */
+.nf{min-height:70vh;display:grid;place-items:center;text-align:center;padding:60px 20px}
+.nf h1{color:var(--green)}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-in,.about-grid,.contact-grid,.prop{grid-template-columns:1fr}
+  .hero{padding-top:64px}
+  .hero-art{display:none}.hero-art.has-photo{display:flex;min-height:240px}
+  .prop-info{position:static}.prop-body{grid-column:auto}
+  .foot{grid-template-columns:1fr 1fr}
+  .sec{padding:68px 0}
+  .about-grid,.contact-grid{gap:40px}
+}
+@media (max-width:760px){
+  .nav-toggle{display:block}
+  .site-nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 20px 30px -16px rgba(18,40,31,.2);padding:8px 24px 20px;display:none}
+  .site-nav.open{display:flex}
+  .site-nav a:not(.btn){padding:14px 0;border-bottom:1px solid var(--line)}
+  .site-nav a:not(.btn)::after{display:none}
+  .site-nav .btn{margin-top:16px}
+  .topbar .wrap{flex-direction:column;gap:2px;font-size:.78rem}.topbar a{margin:0 14px 0 0}
+  .grid{grid-template-columns:1fr}
+  .stats div+div{padding-left:16px}
+  .stats b{font-size:1.3rem}
+  .contact-form{padding:26px}
+  .foot{grid-template-columns:1fr}.legal{flex-direction:column}
+  .to-top{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+
+/* maps */
+.map{margin:6px 0 14px;border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--line);background:var(--cream);aspect-ratio:16/10;box-shadow:var(--shadow-sm)}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.map-links{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.map-office{margin-top:24px;border-color:rgba(255,255,255,.2);aspect-ratio:16/9}
