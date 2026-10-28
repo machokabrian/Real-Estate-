@@ -9,7 +9,8 @@
   const root = $('#listing-root');
   if (!root) return;
 
-  const slug = doc.body.getAttribute('data-slug') || decodeURIComponent(location.pathname.replace(/\/+$/, '').split('/').pop() || '');
+  const qs = new URLSearchParams(location.search).get('slug');
+  const slug = qs || doc.body.getAttribute('data-slug') || decodeURIComponent(location.pathname.replace(/\/+$/, '').split('/').pop() || '');
 
   function notFound() {
     root.innerHTML = '<div class="notfound"><h1>This property is no longer listed</h1><p>It may have been sold or let. See what’s available now, or ask us – we often know about new properties before they’re listed.</p><p><a class="btn btn-gold" href="/#properties">View current listings</a></p></div>';
