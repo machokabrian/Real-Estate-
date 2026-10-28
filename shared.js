@@ -114,6 +114,31 @@
     return { id: '', name: site.brand + ' team', role: '', phone: site.phone1, whatsapp: site.whatsapp };
   }
 
+  /* ---------- maps (Google Maps embed – no API key needed) ---------- */
+  // Accepts "-1.2833, 36.7667", or a Google Maps link containing @lat,lng / !3dlat!4dlng / q=lat,lng
+  function parseLatLng(text) {
+    const s = String(text || '').trim(); if (!s) return null;
+    const pats = [/@(-?\d{1,3}\.\d+),\s*(-?\d{1,3}\.\d+)/, /!3d(-?\d{1,3}\.\d+)!4d(-?\d{1,3}\.\d+)/, /[?&](?:q|query|ll|destination)=(-?\d{1,3}\.\d+)(?:,|%2C)\s*(-?\d{1,3}\.\d+)/i, /^\s*(-?\d{1,3}\.\d+)\s*[, ]\s*(-?\d{1,3}\.\d+)\s*$/];
+    for (const p of pats) {
+      const m = p.exec(s); if (!m) continue;
+      const la = +m[1], ln = +m[2];
+      if (Math.abs(la) <= 90 && Math.abs(ln) <= 180) return { lat: la, lng: ln };
+    }
+    return null;
+  }
+  const mapQuery = (l) => (l.lat != null && l.lng != null && l.lat !== '' ? l.lat + ',' + l.lng : [l.location, 'Nairobi, Kenya'].filter(Boolean).join(', '));
+  const mapEmbed = (q, z) => 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&z=' + (z || 15) + '&output=embed';
+  const mapLink = (q) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+  const dirLink = (q) => 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(q);
+  function mapBlock(l) {
+    if (!l.location && !(l.lat != null && l.lng != null)) return '';
+    const q = mapQuery(l), exact = l.lat != null && l.lng != null && l.lat !== '';
+    return '<h2>Location</h2><div class="map"><iframe src="' + esc(mapEmbed(q, exact ? 16 : 14)) + '" title="Map of ' + esc(l.title) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>' +
+      '<p class="map-links"><a class="btn btn-ghost btn-sm" data-track="map_click" href="' + esc(mapLink(q)) + '" target="_blank" rel="noopener">Open in Google Maps</a> ' +
+      '<a class="btn btn-ghost btn-sm" data-track="directions_click" href="' + esc(dirLink(q)) + '" target="_blank" rel="noopener">Get directions</a></p>' +
+      (exact ? '' : '<p class="fine">Map shows the general area. Exact address is shared when you book a viewing.</p>');
+  }
+
   /* ---------- HTML builders (used by the browser AND the build script) ---------- */
   const placeholder = () => '<div class="ph" role="img" aria-label="Photos coming soon"><svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 31 32 9l26 22"/><path d="M13 27v27h38V27"/><path d="M26 54V38h12v16"/></svg><span>Photos coming soon</span></div>';
 
@@ -181,7 +206,7 @@
       '<button class="btn btn-ghost btn-sm" type="button" data-share data-title="' + esc(l.title) + '">Share</button></div>' +
       (site.viewingNote ? '<p class="note" id="viewing-note">' + esc(site.viewingNote) + '</p>' : '') + '</aside>' +
       '<div class="prop-body"><dl class="facts">' + facts + '</dl>' +
-      (desc ? '<h2>About this property</h2><div class="desc">' + desc + '</div>' : '') + feats +
+      (desc ? '<h2>About this property</h2><div class="desc">' + desc + '</div>' : '') + feats + mapBlock(l) +
       '<div class="calc" id="calc"></div></div></div>' +
       '<section class="similar" id="similar" hidden><h2>You may also like</h2><div class="grid" id="similar-grid"></div></section>';
   }
@@ -204,6 +229,7 @@
 
   Object.assign(LN, {
     esc, slugify, digits, num, normKE, sig, STATUS, CATS,
+    parseLatLng, mapQuery, mapEmbed, mapLink, dirLink, mapBlock,
     siteSettings, normalizeData, priceText, sizeText, subtitle, imgUrl, waLink, agentFor,
     placeholder, cardHTML, propertyHTML, bindSite
   });
