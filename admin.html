@@ -72,6 +72,8 @@
 </head>
 <body>
 
+<p id="boot" style="text-align:center;padding:40px 20px;color:#5c6a62">Loading admin…</p>
+
 <section class="login" id="login" hidden>
   <form class="login-card" id="login-form">
     <img src="/logo.svg" alt="" width="56" height="56">
@@ -170,6 +172,17 @@
   </form>
 </dialog>
 
+<noscript><p style="text-align:center;padding:40px">Please turn on JavaScript to use the admin panel.</p></noscript>
+<script>
+/* If any admin file fails to load or crashes, say so instead of leaving a blank page. */
+addEventListener('error', function (e) {
+  var b = document.getElementById('boot'); if (!b || b.hidden && document.getElementById('app').hidden === false) return;
+  var t = e.target && (e.target.src || e.target.href);
+  b.hidden = false; b.style.color = '#a12d2d';
+  b.textContent = t ? 'A page file did not load (' + t.split('/').pop() + '). Check your internet connection and reload.'
+    : 'The admin panel could not start (' + (e.message || 'unknown error') + '). Reload the page; if it persists, make sure admin.html and admin.js were both updated together.';
+}, true);
+</script>
 <script src="/config.js"></script>
 <script src="/shared.js"></script>
 <script src="/admin.js"></script>
