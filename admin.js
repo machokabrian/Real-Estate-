@@ -141,6 +141,8 @@
     const E = edf.elements;
     ['title', 'status', 'category', 'propertyType', 'location', 'priceUnit', 'sizeUnit', 'description', 'code', 'slug'].forEach((k) => { E[k].value = v[k] || ''; });
     ['price', 'beds', 'baths', 'size'].forEach((k) => { E[k].value = v[k] == null ? '' : v[k]; });
+    E.mapPin.value = v.lat != null && v.lng != null ? v.lat + ', ' + v.lng : '';
+    $('#e-map-ok').textContent = '';
     E.features.value = (v.features || []).join('\n');
     E.published.checked = v.published !== false; E.featured.checked = !!v.featured;
     E.agentId.innerHTML = '<option value="">Default (first team member, or the company)</option>' +
@@ -151,6 +153,13 @@
     ed.showModal();
   }
   function slugPreview() { $('#slug-prev').textContent = LN.slugify(edf.elements.slug.value || edf.elements.title.value) || '…'; }
+  $('#e-geo').addEventListener('click', () => {
+    const out = $('#e-map-ok');
+    if (!navigator.geolocation) { out.textContent = 'Not supported on this device.'; return; }
+    out.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition((p) => { edf.elements.mapPin.value = p.coords.latitude.toFixed(6) + ', ' + p.coords.longitude.toFixed(6); out.textContent = 'Pin set to where you are now.'; },
+      () => { out.textContent = 'Couldn’t get your location – allow location access, or paste coordinates.'; }, { enableHighAccuracy: true, timeout: 12000 });
+  });
   edf.elements.title.addEventListener('input', slugPreview);
   edf.elements.slug.addEventListener('input', slugPreview);
   $$('[data-ed-close]').forEach((b) => b.addEventListener('click', () => ed.close()));
@@ -187,9 +196,11 @@
     const id = S.ed.id || 'l_' + Date.now().toString(36) + uid().slice(0, 3);
     const base = LN.slugify(E.slug.value || title) || id; let slug = base, n = 2;
     while (L.some((x) => x.id !== id && x.slug === slug)) slug = base + '-' + n++;
+    const pinText = E.mapPin.value.trim(), pin = LN.parseLatLng(pinText);
+    if (pinText && !pin) { toast('Couldn’t read that map pin. Paste coordinates like -1.2833, 36.7667 or a full Google Maps link (short maps.app.goo.gl links can’t be read – open them first and copy the long link).', true); E.mapPin.focus(); return; }
     const sz = E.size.value.trim();
     const obj = Object.assign({}, old || { createdAt: new Date().toISOString() }, {
-      id, title, location, slug, status: E.status.value, category: E.category.value,
+      id, title, location, slug, lat: pin ? pin.lat : undefined, lng: pin ? pin.lng : undefined, status: E.status.value, category: E.category.value,
       propertyType: E.propertyType.value.trim() || undefined, price: +price || 0, priceUnit: E.priceUnit.value.trim() || undefined,
       beds: +E.beds.value || undefined, baths: +E.baths.value || undefined,
       size: sz === '' ? undefined : (isNaN(+sz) ? sz : +sz), sizeUnit: E.sizeUnit.value.trim() || undefined,
@@ -255,47 +266,4 @@
     });
     box.addEventListener('click', (e) => {
       const add = e.target.closest('[data-add]'), del = e.target.closest('[data-del]');
-      if (add) { S.data[kind].push(kind === 'team' ? { id: 't_' + uid(), name: '' } : { name: '', rating: 5, text: '' }); markDirty(); renderList(kind); }
-      else if (del) {
-        const i = +del.getAttribute('data-i');
-        if (confirm('Remove this ' + LISTS[kind].noun + '?')) { S.data[kind].splice(i, 1); markDirty(); renderList(kind); }
-      }
-    });
-  });
-
-  /* single-photo fields (settings, team) */
-  doc.addEventListener('change', async (e) => {
-    const f = e.target.closest('[data-photo]'); if (!f || !f.files[0]) return;
-    const kind = f.getAttribute('data-photo'), key = f.getAttribute('data-key'), idx = f.getAttribute('data-idx');
-    f.disabled = true;
-    try {
-      const url = await uploadImage(f.files[0], f.getAttribute('data-folder'));
-      if (kind === 'setting') { S.data.settings[key] = url; markDirty(); renderSettings(); }
-      else { S.data[kind][+idx][key] = url; markDirty(); renderList(kind); }
-      toast('Photo uploaded.');
-    } catch (err) { toast(err.message, true); f.disabled = false; f.value = ''; }
-  });
-  doc.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-photo-clear]'); if (!b) return;
-    const kind = b.getAttribute('data-photo-clear'), key = b.getAttribute('data-key'), idx = b.getAttribute('data-idx');
-    if (kind === 'setting') { S.data.settings[key] = ''; markDirty(); renderSettings(); }
-    else { S.data[kind][+idx][key] = ''; markDirty(); renderList(kind); }
-  });
-
-  /* ---------- save & publish ---------- */
-  $('#btn-save').addEventListener('click', async () => {
-    const b = $('#btn-save'); b.disabled = true; b.textContent = 'Saving…';
-    try {
-      S.data.team = S.data.team.filter((t) => t.name && t.name.trim());
-      S.data.reviews = S.data.reviews.filter((r) => r.name && r.name.trim() && r.text && r.text.trim());
-      const r = await api('/api/save', { data: S.data });
-      S.data.updatedAt = r.updatedAt; markDirty(false); renderAll();
-      toast(r.rebuild ? 'Published! The website is updating now – property pages refresh in about a minute.' : 'Published! Listings update on the website within about a minute.');
-    } catch (err) { toast(err.message, true); }
-    finally { b.disabled = false; b.textContent = 'Save & publish'; }
-  });
-
-  /* ---------- start ---------- */
-  if (S.token) load().catch((e) => showLogin(e.message && e.message.indexOf('Session') === -1 ? e.message : ''));
-  else showLogin();
-})(globalThis);
+      if (add) { S.data[kind].push(kind === 'team' ? { id: 't_' + uid(), name: '' } : { name: '', rating: 5, text: '' }); 
