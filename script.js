@@ -29,6 +29,9 @@
     im.src = LN.imgUrl(site.aboutImage, 900); im.hidden = false;
   }
   $('#stat-count').textContent = data.listings.length;
+  const omap = $('#office-map'), oq = (site.address || '') + (/nairobi/i.test(site.address || '') ? '' : ', Nairobi, Kenya');
+  if (omap && site.address) omap.src = LN.mapEmbed(oq, 15);
+  const dir = $('[data-href="{mapUrl}"]'); if (dir && !site.mapUrl && site.address) { dir.href = LN.mapLink(oq); dir.hidden = false; }
 
   /* ---------- listings ---------- */
   const state = { cat: 'all', status: 'all', q: '' };
