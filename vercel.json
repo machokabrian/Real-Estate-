@@ -4,7 +4,7 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/property/:slug", "destination": "/listing.html" }
+    { "source": "/property/:slug", "destination": "/listing" }
   ],
   "headers": [
     {
