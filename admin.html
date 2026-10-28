@@ -146,6 +146,9 @@
         <div class="field"><label for="e-baths">Bathrooms</label><input id="e-baths" name="baths" inputmode="numeric"></div>
         <div class="field"><label for="e-size">Size</label><input id="e-size" name="size" placeholder="e.g. 3200 or 0.5"></div>
         <div class="field"><label for="e-su">Size unit</label><input id="e-su" name="sizeUnit" placeholder="sq ft, acre, sqm…"></div>
+        <div class="field wide"><label for="e-map">Map pin <small>(optional – otherwise the map shows the area above)</small></label>
+          <input id="e-map" name="mapPin" placeholder="e.g. -1.2833, 36.7667  or paste a Google Maps link">
+          <p class="hint">In Google Maps: press and hold the exact spot, tap the coordinates that appear, and paste them here. <button type="button" class="btn btn-ghost btn-sm" id="e-geo">Use my current location</button> <span id="e-map-ok"></span></p></div>
         <div class="field wide"><label for="e-desc">Description</label><textarea id="e-desc" name="description" rows="6"></textarea><p class="hint">A blank line starts a new paragraph.</p></div>
         <div class="field wide"><label for="e-feat">Features <small>(one per line)</small></label><textarea id="e-feat" name="features" rows="5" placeholder="Gated community&#10;Borehole&#10;Backup generator"></textarea></div>
       </div>
