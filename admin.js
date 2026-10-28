@@ -6,6 +6,7 @@
   const $ = (s, r) => (r || doc).querySelector(s);
   const $$ = (s, r) => Array.prototype.slice.call((r || doc).querySelectorAll(s));
   const uid = () => Math.random().toString(36).slice(2, 9);
+  const boot = $('#boot'); if (boot) boot.hidden = true;
   const S = { token: '', data: null, dirty: false, ed: null };
   try { S.token = sessionStorage.getItem('ln_admin') || ''; } catch (e) { /* ignore */ }
 
@@ -141,8 +142,7 @@
     const E = edf.elements;
     ['title', 'status', 'category', 'propertyType', 'location', 'priceUnit', 'sizeUnit', 'description', 'code', 'slug'].forEach((k) => { E[k].value = v[k] || ''; });
     ['price', 'beds', 'baths', 'size'].forEach((k) => { E[k].value = v[k] == null ? '' : v[k]; });
-    E.mapPin.value = v.lat != null && v.lng != null ? v.lat + ', ' + v.lng : '';
-    $('#e-map-ok').textContent = '';
+    if (E.mapPin) { E.mapPin.value = v.lat != null && v.lng != null ? v.lat + ', ' + v.lng : ''; $('#e-map-ok').textContent = ''; }
     E.features.value = (v.features || []).join('\n');
     E.published.checked = v.published !== false; E.featured.checked = !!v.featured;
     E.agentId.innerHTML = '<option value="">Default (first team member, or the company)</option>' +
@@ -153,7 +153,8 @@
     ed.showModal();
   }
   function slugPreview() { $('#slug-prev').textContent = LN.slugify(edf.elements.slug.value || edf.elements.title.value) || '…'; }
-  $('#e-geo').addEventListener('click', () => {
+  const geoBtn = $('#e-geo');
+  if (geoBtn) geoBtn.addEventListener('click', () => {
     const out = $('#e-map-ok');
     if (!navigator.geolocation) { out.textContent = 'Not supported on this device.'; return; }
     out.textContent = 'Locating…';
@@ -196,7 +197,7 @@
     const id = S.ed.id || 'l_' + Date.now().toString(36) + uid().slice(0, 3);
     const base = LN.slugify(E.slug.value || title) || id; let slug = base, n = 2;
     while (L.some((x) => x.id !== id && x.slug === slug)) slug = base + '-' + n++;
-    const pinText = E.mapPin.value.trim(), pin = LN.parseLatLng(pinText);
+    const pinText = E.mapPin ? E.mapPin.value.trim() : '', pin = LN.parseLatLng(pinText);
     if (pinText && !pin) { toast('Couldn’t read that map pin. Paste coordinates like -1.2833, 36.7667 or a full Google Maps link (short maps.app.goo.gl links can’t be read – open them first and copy the long link).', true); E.mapPin.focus(); return; }
     const sz = E.size.value.trim();
     const obj = Object.assign({}, old || { createdAt: new Date().toISOString() }, {
@@ -265,5 +266,4 @@
       S.data[kind][+t.getAttribute('data-i')][t.getAttribute('data-f')] = v; markDirty();
     });
     box.addEventListener('click', (e) => {
-      const add = e.target.closest('[data-add]'), del = e.target.closest('[data-del]');
-      if (add) { S.data[kind].push(kind === 'team' ? { id: 't_' + uid(), name: '' } : { name: '', rating: 5, text: '' }); 
+      const add = e.target.closest('[data-add]'), del = e.target.closest('[data-del]')
