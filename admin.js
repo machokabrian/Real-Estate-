@@ -266,4 +266,48 @@
       S.data[kind][+t.getAttribute('data-i')][t.getAttribute('data-f')] = v; markDirty();
     });
     box.addEventListener('click', (e) => {
-      const add = e.target.closest('[data-add]'), del = e.target.closest('[data-del]')
+      const add = e.target.closest('[data-add]'), del = e.target.closest('[data-del]');
+      if (add) { S.data[kind].push(kind === 'team' ? { id: 't_' + uid(), name: '' } : { name: '', rating: 5, text: '' }); markDirty(); renderList(kind); }
+      else if (del) {
+        const i = +del.getAttribute('data-i');
+        if (confirm('Remove this ' + LISTS[kind].noun + '?')) { S.data[kind].splice(i, 1); markDirty(); renderList(kind); }
+      }
+    });
+  });
+
+  /* single-photo fields (settings, team) */
+  doc.addEventListener('change', async (e) => {
+    const f = e.target.closest('[data-photo]'); if (!f || !f.files[0]) return;
+    const kind = f.getAttribute('data-photo'), key = f.getAttribute('data-key'), idx = f.getAttribute('data-idx');
+    f.disabled = true;
+    try {
+      const url = await uploadImage(f.files[0], f.getAttribute('data-folder'));
+      if (kind === 'setting') { S.data.settings[key] = url; markDirty(); renderSettings(); }
+      else { S.data[kind][+idx][key] = url; markDirty(); renderList(kind); }
+      toast('Photo uploaded.');
+    } catch (err) { toast(err.message, true); f.disabled = false; f.value = ''; }
+  });
+  doc.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-photo-clear]'); if (!b) return;
+    const kind = b.getAttribute('data-photo-clear'), key = b.getAttribute('data-key'), idx = b.getAttribute('data-idx');
+    if (kind === 'setting') { S.data.settings[key] = ''; markDirty(); renderSettings(); }
+    else { S.data[kind][+idx][key] = ''; markDirty(); renderList(kind); }
+  });
+
+  /* ---------- save & publish ---------- */
+  $('#btn-save').addEventListener('click', async () => {
+    const b = $('#btn-save'); b.disabled = true; b.textContent = 'Saving…';
+    try {
+      S.data.team = S.data.team.filter((t) => t.name && t.name.trim());
+      S.data.reviews = S.data.reviews.filter((r) => r.name && r.name.trim() && r.text && r.text.trim());
+      const r = await api('/api/save', { data: S.data });
+      S.data.updatedAt = r.updatedAt; markDirty(false); renderAll();
+      toast(r.rebuild ? 'Published! The website is updating now – property pages refresh in about a minute.' : 'Published! Listings update on the website within about a minute.');
+    } catch (err) { toast(err.message, true); }
+    finally { b.disabled = false; b.textContent = 'Save & publish'; }
+  });
+
+  /* ---------- start ---------- */
+  if (S.token) load().catch((e) => showLogin(e.message && e.message.indexOf('Session') === -1 ? e.message : ''));
+  else showLogin();
+})(globalThis);
